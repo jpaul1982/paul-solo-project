@@ -11,6 +11,12 @@ function* getArtists(action) {
     }
 }
 
+// function* getArtistDetail(action) {
+//     try {
+
+//     }
+// }
+
 
 
 function* artistSaga() {

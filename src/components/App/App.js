@@ -5,19 +5,16 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-
 import {connect} from 'react-redux';
-
 import Nav from '../Nav/Nav';
-
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
-
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import Main from '../Main/Main';
 import './App.css';
+import ArtistDetail from '../ArtistDetail/ArtistDetail';
+import ArtistGallery from '../ArtistGallery/ArtistGallery';
 
 class App extends Component {
   componentDidMount () {
@@ -33,6 +30,8 @@ class App extends Component {
           <Nav />
           <Switch>
             <Route exact path="/home" component={Main}/>
+            <Route path='/artistDetail' component={ArtistDetail}/>
+            <Route path='/artistGallery' component={ArtistGallery}/>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
             {/* Visiting localhost:3000/about will show the about page.
