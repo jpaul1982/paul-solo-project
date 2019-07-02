@@ -5,6 +5,7 @@ import user from './userReducer';
 import artists from './artistsReducer';
 import pieces from './piecesReducer';
 import artistDetail from './artistDetailReducer';
+import artistGallery from './artistGalleryReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   user,
   artists,
   pieces,
-  artistDetail, // will have an id and username if someone is logged in
+  artistDetail,
+  artistGallery, // will have an id and username if someone is logged in
 });
 
 export default rootReducer;

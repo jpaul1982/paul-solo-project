@@ -11,14 +11,6 @@ function* getArtists(action) {
     }
 }
 
-// function* getArtistDetail(action) {
-//     try {
-
-//     }
-// }
-
-
-
 function* artistSaga() {
     yield takeLatest('FETCH_ARTISTS', getArtists);
 
