@@ -29,7 +29,8 @@ router.get('/artistGallery/:id', (req, res) => {
     const queryText = `SELECT "pieces"."id", "image_url", "status" FROM "pieces"
     JOIN "artists"
     ON "artists"."id" = "pieces"."artist_id"
-    WHERE "artist_id" = $1;`;
+    WHERE "artist_id" = $1
+    ORDER BY "id";`;
     pool.query(queryText, [req.params.id])
         .then((result) => { res.send(result.rows); })
         .catch((error) => {

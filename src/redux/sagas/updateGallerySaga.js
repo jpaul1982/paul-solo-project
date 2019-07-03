@@ -5,7 +5,8 @@ function* updateGalleryItem(action) {
     try{
         console.log(action.payload);
         yield axios.put(`api/status`,{id:action.payload.galleryImage.id, status:!action.payload.galleryImage.status});
-        yield put ({type: `FETCH_ARTISTS` });
+        const galleryResponse = yield axios.get(`/api/artistGallery/4`); // <= this is hardcoded artist.id
+        yield put({ type: `SET_GALLERY`, payload: galleryResponse.data });
     } catch (error) {
         console.log('Error Updating Gallery Item', error);
     }
