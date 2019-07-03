@@ -26,7 +26,7 @@ router.get('/pieces', (req, res) => {
 });
 
 router.get('/artistGallery/:id', (req, res) => {
-    const queryText = `SELECT "pieces"."id", "image_url" FROM "pieces"
+    const queryText = `SELECT "pieces"."id", "image_url", "status" FROM "pieces"
     JOIN "artists"
     ON "artists"."id" = "pieces"."artist_id"
     WHERE "artist_id" = $1;`;
@@ -60,6 +60,8 @@ router.post('/comments', (req, res) => {
 
 router.put('/status', (req, res) => {
     console.log('update route hit!');
+    console.log(req.body);
+    
     const queryText = `UPDATE "pieces" SET "status" = $1 WHERE "id" = $2`;
     const queryValues = [req.body.status, req.body.id];
     pool.query(queryText, queryValues)

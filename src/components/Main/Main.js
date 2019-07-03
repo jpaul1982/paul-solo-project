@@ -39,12 +39,12 @@ class Main extends Component {
                           
 
                 {this.props.reduxState.pieces.length && 
-                <img alt='Contanza' src={this.props.reduxState.pieces[0].image_url}/>    }      
+                <img className='mainImage' alt='Cosntanza' src={this.props.reduxState.pieces[1].image_url}/>    }      
 
 
 
 
-                {/* <pre>{JSON.stringify(this.props.reduxState.pieces, null, 2)}</pre> */}
+                <pre>{JSON.stringify(this.props.reduxState.pieces, null, 2)}</pre>
             </div>
 
         )
