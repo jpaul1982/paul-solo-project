@@ -39,7 +39,7 @@ class Main extends Component {
                           
 
                 {this.props.reduxState.pieces.length && 
-                <img src={this.props.reduxState.pieces[0].image_url}/>    }      
+                <img alt='Contanza' src={this.props.reduxState.pieces[0].image_url}/>    }      
 
 
 

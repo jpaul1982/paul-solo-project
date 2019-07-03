@@ -26,10 +26,23 @@ router.get('/pieces', (req, res) => {
 });
 
 router.get('/artistGallery/:id', (req, res) => {
-    const queryText = `SELECT "image_url" FROM "pieces"
+    const queryText = `SELECT "pieces"."id", "image_url" FROM "pieces"
     JOIN "artists"
     ON "artists"."id" = "pieces"."artist_id"
     WHERE "artist_id" = $1;`;
+    pool.query(queryText, [req.params.id])
+        .then((result) => { res.send(result.rows); })
+        .catch((error) => {
+            console.log('Error completing SELECT "image_url" query', error);
+            res.sendStatus(500);
+        })
+});
+
+router.get('/gallerySpec/:id', (req, res) => {
+    const queryText = `SELECT "image_url","title","year","status" FROM "pieces"
+    JOIN "artists"
+    ON "artists"."id" = "pieces"."artist_id"
+    WHERE "artist_id" = $1`;
     pool.query(queryText, [req.params.id])
         .then((result) => { res.send(result.rows); })
         .catch((error) => {
