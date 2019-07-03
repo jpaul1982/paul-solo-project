@@ -16,8 +16,14 @@ class ArtistGallery extends Component {
             <div>
 
                 {this.props.gallery.length && this.props.gallery.map(galleryImage => {
-                    return <img key={galleryImage.id} alt='galleryImage' onClick={() => this.handleClick(galleryImage.id)} className='galleryImages' src={galleryImage.image_url} />
-
+                    return (
+                        <>
+                    <img key={galleryImage.id} alt='galleryImage' onClick={() => this.handleClick(galleryImage.id)} className='galleryImages' src={galleryImage.image_url} />
+                    <br/>
+                    <button>Delete</button>
+                    <p>Status</p>
+                    </>
+                    )
                 })}
                 {/* <pre>{JSON.stringify(this.props.reduxState.pieces, null, 2)}</pre> */}
                 {/* <pre>{JSON.stringify(this.props.gallery, null, 2)}</pre> */}

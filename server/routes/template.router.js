@@ -54,8 +54,23 @@ router.get('/gallerySpec/:id', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/comments', (req, res) => {
 
+});
+
+router.put('/status', (req, res) => {
+    console.log('update route hit!');
+    const queryText = `UPDATE "pieces" SET "status" = $1 WHERE "id" = $2`;
+    const queryValues = [req.body.status, req.body.id];
+    pool.query(queryText, queryValues)
+        .then(() => {
+            res.sendStatus(200);
+            console.log('update worked!');
+        })
+        .catch((err) => {
+            console.log('Error completing UPDATE movie query', err);
+            res.sendStatus(500)
+        });
 });
 
 module.exports = router;

@@ -9,10 +9,13 @@ class GallerySpec extends Component {
                 {this.props.reduxState.gallerySpec.length &&
                     this.props.reduxState.gallerySpec.map((spec,i) => {
                         return (
-                            
-                        <img key={i} alt='specific piece' src={spec.image_url} />
-                        // why can't I put other specs here?!?!?
-                        )
+                            <>
+                        <img key={i} className='specImg' alt='specific piece' src={spec.image_url} />
+                        <p>{spec.title}</p>
+                        <p>{spec.year}</p>
+                        </>)
+                  
+                        
                       
                     })}
 
