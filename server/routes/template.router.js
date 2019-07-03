@@ -26,7 +26,7 @@ router.get('/pieces', (req, res) => {
 });
 
 router.get('/artistGallery/:id', (req, res) => {
-    const queryText = `SELECT "pieces"."id", "image_url", "status" FROM "pieces"
+    const queryText = `SELECT "pieces"."id", "image_url", "status","artist_id" FROM "pieces"
     JOIN "artists"
     ON "artists"."id" = "pieces"."artist_id"
     WHERE "artist_id" = $1

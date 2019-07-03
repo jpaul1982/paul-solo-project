@@ -11,7 +11,7 @@ class ArtistGallery extends Component {
     }
 
     handleUpdate = (galleryImage) => {
-        console.log();
+        console.log(galleryImage);
         this.props.dispatch({ type: `UPDATE_GALLERY_ITEM`, payload: { galleryImage } });
       
 
@@ -43,7 +43,7 @@ class ArtistGallery extends Component {
                     )
                 })}
                 {/* <pre>{JSON.stringify(this.props.reduxState.pieces, null, 2)}</pre> */}
-                {/* <pre>{JSON.stringify(this.props.gallery, null, 2)}</pre> */}
+                <pre>{JSON.stringify(this.props.gallery, null, 2)}</pre>
 
 
             </div>
