@@ -2,9 +2,8 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * GET route template
- */
+// GET Routes
+
 router.get('/artists', (req, res) => {
     const queryText = 'SELECT * FROM artists';
     pool.query(queryText)
@@ -63,8 +62,7 @@ router.get('/gallerySpec/:id', (req, res) => {
 });
 
 
-// POST route template
-
+// POST routes
 
 router.post('/comments', (req, res) => {
     console.log(req.body);
@@ -104,7 +102,7 @@ router.post('/add-piece', (req, res) => {
     })
 })
 
-
+// PUT Routes
 
 router.put('/status', (req, res) => {
     console.log('update route hit!');
@@ -121,5 +119,19 @@ router.put('/status', (req, res) => {
             res.sendStatus(500)
         });
 });
+
+// Delete Routes
+
+router.delete('/delete-piece', (req, res) => {
+    console.log('delete route hit!');
+    pool.query(
+        `DELETE FROM "pieces" WHERE "id" = $1` , [req.body.id])
+        .then(() => { res.sendStatus(200); })
+        .catch((err) => {
+          console.log('Error completing DELETE piece query', err);
+          res.sendStatus(500);
+        });
+    });
+    
 
 module.exports = router;

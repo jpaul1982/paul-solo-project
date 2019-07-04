@@ -13,8 +13,11 @@ class ArtistGallery extends Component {
     handleUpdate = (galleryImage) => {
         console.log(galleryImage);
         this.props.dispatch({ type: `UPDATE_GALLERY_ITEM`, payload: { galleryImage } });
-      
 
+    }
+
+    handleDelete = () => {
+        this.props.dispatch({type:`DELETE_PIECE`,})
     }
     render() {
         return (
@@ -25,7 +28,7 @@ class ArtistGallery extends Component {
                         <>
                             <img key={i} alt='galleryImage' onClick={() => this.handleClick(galleryImage.id)} className='galleryImages' src={galleryImage.image_url} />
 
-                            <button>Delete</button>
+                            <button onClick={this.handleDelete}>Delete</button>
 
                             {galleryImage.status ?
                                 <>
@@ -35,7 +38,7 @@ class ArtistGallery extends Component {
                                 <>
                                     <p onClick={() => this.handleUpdate(galleryImage)}> On Loan </p>
                                 </>
-                            
+
 
                             }
                         </>
