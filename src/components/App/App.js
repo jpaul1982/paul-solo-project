@@ -18,6 +18,7 @@ import ArtistGallery from '../ArtistGallery/ArtistGallery';
 import GallerySpec from '../GallerySpec/GallerySpec';
 import Comments from '../Comments/Comments';
 import AdminPostArtist from '../Admin/AdminPostArtist';
+import AdminPostPiece from '../Admin/AdminPostPiece';
 
 class App extends Component {
   componentDidMount () {
@@ -37,7 +38,8 @@ class App extends Component {
             <Route path='/artistGallery' component={ArtistGallery}/>
             <Route path='/gallerySpec' component={GallerySpec}/>
             <Route path='/comments' component={Comments}/>
-            <Route path='/adminPostArtist' component={AdminPostArtist}/>
+            <Route path='/admin-post-artist' component={AdminPostArtist}/>
+            <Route path='/admin-post-piece' component={AdminPostPiece}/>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
             {/* Visiting localhost:3000/about will show the about page.

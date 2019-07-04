@@ -23,11 +23,12 @@ class ArtistDetail extends Component {
     handleComment = () => {
         console.log(this.state, this.props.artist.id);
         this.props.dispatch({ type: `SET_COMMENT`, payload: { ...this.state, artist_id: this.props.artist.id } })
-    }
-
-    handleViewComment = () => {
         this.props.history.push('/comments');
     }
+
+    // handleViewComment = () => {
+        
+    // }
 
     render() {
         return (
@@ -42,7 +43,7 @@ class ArtistDetail extends Component {
                 <textarea onChange={this.handleChange} value={this.state.comment} placeholder="leave comments or inquiries"></textarea>
                 <input onClick={this.handleComment} type="submit"></input>
                 <div onClick={() => this.handleClick(this.props.artist.id)}>View Artist's Gallery</div>
-                <div onClick={this.handleViewComment}>View Comments</div>
+                {/* <div onClick={this.handleViewComment}>View Comments</div> */}
 
                 {/* <pre>{JSON.stringify(this.props.artist.id, null, 2)}</pre> */}
                 {/* <pre>{JSON.stringify(this.props.reduxState.pieces, null, 2)}</pre> */}

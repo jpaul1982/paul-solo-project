@@ -90,6 +90,20 @@ router.post('/add-artist', (req, res) => {
     })
 })
 
+router.post('/add-piece', (req, res) => {
+    queryText = `INSERT INTO "pieces" ("title", "year", "status","image_url","artist_id") 
+    VALUES ($1,$2,$3,$4,$5)`;
+    piece = req.body;
+    queryValues = [piece.title, piece.year, piece.status,piece.image_url,piece.artist_id];
+    pool.query(queryText, queryValues)
+    .then(() => {res.sendStatus(210); })
+    .catch((err) => {
+        console.log('Error completing INSERT pieces query', err);
+        res.sendStatus(500);
+        
+    })
+})
+
 
 
 router.put('/status', (req, res) => {
