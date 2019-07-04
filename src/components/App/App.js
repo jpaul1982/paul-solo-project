@@ -16,6 +16,7 @@ import './App.css';
 import ArtistDetail from '../ArtistDetail/ArtistDetail';
 import ArtistGallery from '../ArtistGallery/ArtistGallery';
 import GallerySpec from '../GallerySpec/GallerySpec';
+import Comments from '../Comments/Comments';
 
 class App extends Component {
   componentDidMount () {
@@ -34,6 +35,7 @@ class App extends Component {
             <Route path='/artistDetail' component={ArtistDetail}/>
             <Route path='/artistGallery' component={ArtistGallery}/>
             <Route path='/gallerySpec' component={GallerySpec}/>
+            <Route path='/comments' component={Comments}/>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
             {/* Visiting localhost:3000/about will show the about page.
