@@ -7,6 +7,7 @@ import piecesSaga from './piecesSaga';
 import gallerySaga from './gallerySaga';
 import gallerySpecSaga from './gallerySpecSaga';
 import updategallerySaga from './updateGallerySaga';
+import commentSaga from './commentSaga';
 
 
 // rootSaga is the primary saga.
@@ -26,5 +27,6 @@ export default function* rootSaga() {
     gallerySaga(),
     gallerySpecSaga(),
     updategallerySaga(),
+    commentSaga(),
   ]);
 }

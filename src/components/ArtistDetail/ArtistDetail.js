@@ -2,54 +2,57 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class ArtistDetail extends Component {
+    state = {
+        comment: ''
+    }
+    handleChange = (event) => {
+        console.log(this.state.text);
+        this.setState({
+            comment: event.target.value
+        })
+    }
     handleClick = (artistId) => {
         console.log(this.props.artist.id);
         this.props.history.push('/artistGallery');
         this.props.dispatch({
-            type:`FETCH_GALLERY`,
-            payload: {artistId}
+            type: `FETCH_GALLERY`,
+            payload: { artistId }
         });
-
     }
-    
-    
+
+    handleComment = () => {
+        console.log(this.state, this.props.artist.id);
+        this.props.dispatch({ type: `SET_COMMENT`, payload: { ...this.state, artist_id: this.props.artist.id } })
+    }
+
     render() {
         return (
 
             <div>
-            <div>{this.props.artist.first_name + " " + this.props.artist.last_name} </div>
-            <br/>
-            <div>{this.props.artist.artist_medium} </div>
-            <br/>
-            <div>{this.props.artist.description} </div>
-            <br/>
-            
-            <br/>
+                <div>{this.props.artist.first_name + " " + this.props.artist.last_name} </div>
+                <br />
+                <div>{this.props.artist.artist_medium} </div>
+                <br />
+                <div>{this.props.artist.description} </div>
+                <br />
+                <textarea onChange={this.handleChange} value={this.state.comment} placeholder="leave comments or inquiries"></textarea>
+                <input onClick={this.handleComment} type="submit"></input>
+                <div onClick={() => this.handleClick(this.props.artist.id)}>View Artist's Gallery</div>
 
-            
-
-            <textarea placeholder="leave comments or inquiries"></textarea>
-
-            
-                      <div onClick={() => this.handleClick(this.props.artist.id)}>View Artist's Gallery</div>
-            
-           
-
-         
-            {/* <pre>{JSON.stringify(this.props.artist.first_name, null, 2)}</pre> */}
-            {/* <pre>{JSON.stringify(this.props.reduxState.pieces, null, 2)}</pre> */}
+                {/* <pre>{JSON.stringify(this.props.artist.id, null, 2)}</pre> */}
+                {/* <pre>{JSON.stringify(this.props.reduxState.pieces, null, 2)}</pre> */}
 
             </div>
 
-            
+
         )
     }
 }
 
 
 const mapStateToProps = (reduxState) => ({
-    reduxState, 
-    artist:reduxState.artistDetail.artist,
+    reduxState,
+    artist: reduxState.artistDetail.artist,
 })
 
 export default connect(mapStateToProps)(ArtistDetail);

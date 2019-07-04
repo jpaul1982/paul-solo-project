@@ -25,6 +25,16 @@ router.get('/pieces', (req, res) => {
         })
 });
 
+router.get('/comments', (req, res) => {
+    const queryText = 'SELECT * FROM comments';
+    pool.query(queryText)
+        .then((result) => { res.send(result.rows); })
+        .catch((error) => {
+            console.log('Error completing SELECT comments query', error);
+            res.sendStatus(500);
+        })
+});
+
 router.get('/artistGallery/:id', (req, res) => {
     const queryText = `SELECT "pieces"."id", "image_url", "status","artist_id" FROM "pieces"
     JOIN "artists"
@@ -55,8 +65,30 @@ router.get('/gallerySpec/:id', (req, res) => {
 /**
  * POST route template
  */
-router.post('/comments', (req, res) => {
+// router.post('/comments/:id', (req, res) => {
+//     console.log(req.params, req.body); // req.body loggin as null value - b/c its
+    
+//     queryText = `INSERT INTO "comments" ("text", "artist_id") VALUES ($1, $2)`;
+//     queryValues = [req.body.text, req.params.artist_id];
+//     pool.query(queryText, queryValues)
+//     .then(() => { res.sendStatus(201); })
+//     .catch((err) => {
+//       console.log('Error completing INSERT comments query', err);
+//       res.sendStatus(500);
+//     });
+// });
 
+router.post('/comments', (req, res) => {
+    console.log(req.body); // req.body loggin as null value - b/c its
+    
+    queryText = `INSERT INTO "comments" ("comment", "artist_id") VALUES ($1, $2)`;
+    queryValues = [req.body.comment, req.body.artist_id];
+    pool.query(queryText, queryValues)
+    .then(() => { res.sendStatus(201); })
+    .catch((err) => {
+      console.log('Error completing INSERT comments query', err);
+      res.sendStatus(500);
+    });
 });
 
 router.put('/status', (req, res) => {
