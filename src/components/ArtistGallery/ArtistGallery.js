@@ -16,19 +16,22 @@ class ArtistGallery extends Component {
 
     }
 
-    handleDelete = () => {
-        this.props.dispatch({type:`DELETE_PIECE`,})
+    handleDelete = (galleryImageId, galleryImageArtistId) => {
+        console.log(galleryImageId);
+        this.props.dispatch({type:`DELETE_PIECE`, payload: { galleryImageId, galleryImageArtistId }})
+        // this.props.history.push('/artistDetail');
+
     }
     render() {
         return (
             <div>
 
-                {this.props.gallery.length && this.props.gallery.map((galleryImage, i) => {
+                {this.props.gallery.length!==0 && this.props.gallery.map((galleryImage, i) => {
                     return (
                         <>
                             <img key={i} alt='galleryImage' onClick={() => this.handleClick(galleryImage.id)} className='galleryImages' src={galleryImage.image_url} />
 
-                            <button onClick={this.handleDelete}>Delete</button>
+                            <button onClick={() => this.handleDelete(galleryImage.id, galleryImage.artist_id)}>Delete</button>
 
                             {galleryImage.status ?
                                 <>

@@ -5,7 +5,7 @@ const artistGallery = (state = [], action) => {
         case `SET_GALLERY`:
         return action.payload;
         default:
-            return 1;
+            return state;
     }
 }
 

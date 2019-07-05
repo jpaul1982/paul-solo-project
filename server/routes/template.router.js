@@ -122,10 +122,12 @@ router.put('/status', (req, res) => {
 
 // Delete Routes
 
-router.delete('/delete-piece', (req, res) => {
-    console.log('delete route hit!');
+router.delete('/delete-piece/:id', (req, res) => {
+    console.log('delete route hit just now again!');
+    console.log(req.params.id); // req.body keeps logging as empty!!!  Why???
+    
     pool.query(
-        `DELETE FROM "pieces" WHERE "id" = $1` , [req.body.id])
+        `DELETE FROM "pieces" WHERE "id" = $1` , [req.params.id])
         .then(() => { res.sendStatus(200); })
         .catch((err) => {
           console.log('Error completing DELETE piece query', err);

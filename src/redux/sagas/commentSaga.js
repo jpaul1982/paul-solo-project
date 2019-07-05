@@ -8,7 +8,6 @@ function* postComment(action) {
         const commentResponse = yield axios.get('api/comments');
         yield put({type:'SET_COMMENTS', payload: commentResponse.data});
         console.log(commentResponse.data);
-         // make comment reducer
     } catch (error) {
         console.log('Error POSTING Comment', error);
     }

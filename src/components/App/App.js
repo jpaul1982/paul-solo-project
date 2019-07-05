@@ -27,13 +27,13 @@ class App extends Component {
 
 
   render() {
-    return (
+    return ( 
       <Router>
         <div>
         
           <Nav />
           <Switch>
-            <Route exact path="/home" component={Main}/>
+            {/* <Route exact path="/home" component={Main}/> */}
             <Route path='/artistDetail' component={ArtistDetail}/>
             <Route path='/artistGallery' component={ArtistGallery}/>
             <Route path='/gallerySpec' component={GallerySpec}/>
@@ -56,7 +56,7 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/home"
-              component={UserPage}
+              component={Main}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
