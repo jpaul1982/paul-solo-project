@@ -1,5 +1,23 @@
 .mainImage{
-    width: 500px;
-    height: 500px;
+    /* width: 100%;
+    height: 100%; */
     object-fit: scale-down;
+    margin-left: 900px;
+    margin-top:-2250px;
+    border: inset #97733a 25px;
+  
 }
+.artistList {
+    list-style: none;
+    font-size: 25px;
+    margin-left: 100px;
+    margin-top: 40px;
+    color:rgb(195, 151, 200);
+    width: 25%;
+
+    }
+
+    .artistList:hover{
+        background-color: rgb(44, 32, 46);
+
+    }

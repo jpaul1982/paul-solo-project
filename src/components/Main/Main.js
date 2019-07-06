@@ -29,7 +29,7 @@ class Main extends Component {
 
             <div>
                 {this.props.reduxState.artists.map(artist => {
-                    return <li onClick={() => this.handleClick(artist)}
+                    return <li className="artistList" onClick={() => this.handleClick(artist)}
                         key={artist.id}>
                         {artist.first_name + " " + artist.last_name}
                     </li>
@@ -39,7 +39,7 @@ class Main extends Component {
                           
 
                 {this.props.reduxState.pieces.length && 
-                <img className='mainImage' alt='Cosntanza' src={this.props.reduxState.pieces[10].image_url}/>    }      
+                <img className='mainImage' alt='Cosntanza' src={this.props.reduxState.pieces[9].image_url}/>    }      
 
 
 

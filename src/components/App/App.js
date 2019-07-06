@@ -37,9 +37,9 @@ class App extends Component {
             <Route path='/artistDetail' component={ArtistDetail}/>
             <Route path='/artistGallery' component={ArtistGallery}/>
             <Route path='/gallerySpec' component={GallerySpec}/>
-            <Route path='/comments' component={Comments}/>
-            <Route path='/admin-post-artist' component={AdminPostArtist}/>
-            <Route path='/admin-post-piece' component={AdminPostPiece}/>
+            <ProtectedRoute path='/comments' component={Comments}/>
+            <ProtectedRoute path='/admin-post-artist' component={AdminPostArtist}/>
+            <ProtectedRoute path='/admin-post-piece' component={AdminPostPiece}/>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
             {/* Visiting localhost:3000/about will show the about page.
@@ -53,7 +53,7 @@ class App extends Component {
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.
             Even though it seems like they are different pages, the user is always on localhost:3000/home */}
-            <ProtectedRoute
+            <Route
               exact
               path="/home"
               component={Main}
