@@ -19,6 +19,7 @@ import GallerySpec from '../GallerySpec/GallerySpec';
 import Comments from '../Comments/Comments';
 import AdminPostArtist from '../Admin/AdminPostArtist';
 import AdminPostPiece from '../Admin/AdminPostPiece';
+import LoginPage from '../LoginPage/LoginPage';
 
 class App extends Component {
   componentDidMount () {
@@ -37,6 +38,7 @@ class App extends Component {
             <Route path='/artistDetail' component={ArtistDetail}/>
             <Route path='/artistGallery' component={ArtistGallery}/>
             <Route path='/gallerySpec' component={GallerySpec}/>
+            <Route path='/user/login' component={LoginPage}/>
             <ProtectedRoute path='/comments' component={Comments}/>
             <ProtectedRoute path='/admin-post-artist' component={AdminPostArtist}/>
             <ProtectedRoute path='/admin-post-piece' component={AdminPostPiece}/>

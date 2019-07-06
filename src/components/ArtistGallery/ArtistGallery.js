@@ -8,6 +8,10 @@ import Grid from '@material-ui/core/Grid';
 
 class ArtistGallery extends Component {
 
+    componentDidMount() {
+        this.props.dispatch({ type: `FETCH_USER_DATA` })
+    }
+
     state = {
         isOpen: false
 
@@ -27,11 +31,13 @@ class ArtistGallery extends Component {
         })
         this.props.dispatch({ type: `FETCH_GALLERY_SPEC`, payload: { galleryImageId } });
     }
-
+    
     handleUpdate = (galleryImage) => {
         console.log(galleryImage);
+        this.props.reduxState.user.id === 1 &&
         this.props.dispatch({ type: `UPDATE_GALLERY_ITEM`, payload: { galleryImage } });
-
+        
+        
     }
 
     handleDelete = (galleryImageId, galleryImageArtistId) => {
@@ -49,11 +55,16 @@ class ArtistGallery extends Component {
                         <>
                             <img key={i} alt='galleryImage' onClick={() => this.handleClick(galleryImage.id)} className='galleryImages' src={galleryImage.image_url} />
 
-                            <button onClick={() => this.handleDelete(galleryImage.id, galleryImage.artist_id)}>Delete</button>
+                            {this.props.reduxState.user.id === 1 ?
+
+                                <button onClick={() => this.handleDelete(galleryImage.id, galleryImage.artist_id)}>Delete</button>
+                                :
+                                <>
+                                </>}
 
                             {galleryImage.status ?
                                 <>
-                                    <p onClick={() => this.handleUpdate(galleryImage)}> Avilable </p>
+                                    <p onClick={() => this.handleUpdate(galleryImage)}> Available </p>
                                 </>
                                 :
                                 <>
@@ -87,6 +98,8 @@ class ArtistGallery extends Component {
                 </Dialog>
                 {/* <pre>{JSON.stringify(this.props.reduxState.pieces, null, 2)}</pre> */}
                 {/* <pre>{JSON.stringify(this.props.gallery, null, 2)}</pre> */}
+                {/* <pre>{JSON.stringify(this.props.reduxState.user, null, 2)}</pre> */}
+
 
 
             </div>
