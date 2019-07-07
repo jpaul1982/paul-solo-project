@@ -18,8 +18,8 @@ class Main extends Component {
         console.log(artist);
         this.props.history.push('/artistDetail');
         this.props.dispatch({
-            type:`SET_ARTIST_DETAIL`,
-            payload: {artist}
+            type: `SET_ARTIST_DETAIL`,
+            payload: { artist }
         });
 
     }
@@ -36,11 +36,10 @@ class Main extends Component {
                 })}
 
 
-                          
 
-                {this.props.reduxState.pieces.length && 
-                <img className='mainImage' alt='Cosntanza' src={this.props.reduxState.pieces[17].image_url}/>    }      
-                                <img className='mainImage' alt='Head Study' src={'headStudyBougereau.jpg'}/>    }     
+                {this.props.reduxState.pieces.length &&
+                    <img className='mainImage' alt='Cosntanza' src={this.props.reduxState.pieces[17].image_url} />}
+                <img className='mainImage' alt='Head Study' src={'headStudyBougereau.jpg'} />    
 
 
 
