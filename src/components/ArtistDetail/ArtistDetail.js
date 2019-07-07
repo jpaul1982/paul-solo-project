@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './ArtistDetail.css';
 
 class ArtistDetail extends Component {
     state = {
@@ -33,16 +34,17 @@ class ArtistDetail extends Component {
     render() {
         return (
 
-            <div>
-                <div>{this.props.artist.first_name + " " + this.props.artist.last_name} </div>
+            <div className='details'>
+                <div id='artistInfo'>{this.props.artist.first_name + " " + this.props.artist.last_name} </div>
                 <br />
-                <div>{this.props.artist.artist_medium} </div>
+                <div id='artistMedium'>{this.props.artist.artist_medium} </div>
                 <br />
-                <div>{this.props.artist.description} </div>
+                <div id='description'>{this.props.artist.description} </div>
                 <br />
-                <textarea onChange={this.handleChange} value={this.state.comment} placeholder="leave comments or inquiries"></textarea>
+                <div id='artistGallery' onClick={() => this.handleClick(this.props.artist.id)}>View Artist's Gallery</div>
+                <br/>
+                <textarea rows = '5' cols = '35' onChange={this.handleChange} value={this.state.comment} placeholder="leave comments or inquiries"></textarea>
                 <input onClick={this.handleComment} type="submit"></input>
-                <div onClick={() => this.handleClick(this.props.artist.id)}>View Artist's Gallery</div>
                 {/* <div onClick={this.handleViewComment}>View Comments</div> */}
 
                 {/* <pre>{JSON.stringify(this.props.artist.id, null, 2)}</pre> */}

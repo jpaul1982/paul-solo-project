@@ -1,0 +1,27 @@
+#artistMedium {
+    font-size: 35px;
+}
+
+#artistInfo {
+    font-size: 50px;
+}
+
+#description {
+    font-size: 22px;
+}
+
+.details {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+
+
+#artistGallery:hover{
+    
+    background-image: url("https://img.freepik.com/free-photo/close-up-white-marble-texture-background_53876-63512.jpg?size=626&ext=jpg");    
+}
+#artistGallery {
+    font-size: 35px;
+    width: 35%;
+}

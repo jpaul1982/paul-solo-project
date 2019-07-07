@@ -1,11 +1,20 @@
 body {
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     margin: 25px;
-    background-color: #0B0B07;
-    
     color: rgb(108, 73, 112);
     font-family: 'Cormorant Garamond', serif;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     }
+
+    html { 
+        background: url("https://img.freepik.com/free-photo/close-up-white-marble-texture-background_53876-63512.jpg?size=626&ext=jpg") no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
 
    
 

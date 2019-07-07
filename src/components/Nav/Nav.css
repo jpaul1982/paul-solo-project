@@ -3,15 +3,16 @@
     font-weight: 700;
     display: inline-block;
     /* color: #f2f2f2; */
-    color:rgb(225, 200, 245);
+    color:rgb(151, 126, 172);
     padding-left: 10px;
     font-family: 'Arizonia', cursive;
 }
 
 .nav-link {
   float: left;
-  color: rgb(215, 161, 221);
-  background-color: #0B0B07;
+  color: rgb(156, 112, 161);
+  /* background-color: #0B0B07; */
+
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
@@ -27,7 +28,9 @@
 }
 
 .nav-link:hover {
-  background-color: rgb(44, 32, 46);
+  /* background-color: rgb(44, 32, 46); */
+    background-image: url("https://img.freepik.com/free-photo/close-up-white-marble-texture-background_53876-63512.jpg?size=626&ext=jpg");    
+
 }
 
 .nav-right {

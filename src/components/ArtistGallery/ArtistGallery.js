@@ -47,7 +47,7 @@ class ArtistGallery extends Component {
     }
     render() {
         return (
-            <div>
+            <div >
 
 
                 {this.props.gallery.length !== 0 && this.props.gallery.map((galleryImage, i) => {
@@ -86,8 +86,8 @@ class ArtistGallery extends Component {
                                 <Grid id='gridContainer' item xs={12}>
 
                                     <img onClick={this.closeDialog} className='specImg' alt='specific piece' src={this.props.reduxState.gallerySpec[0].image_url} />
-                                    <p>{this.props.reduxState.gallerySpec[0].title}</p>
-                                    <p>{this.props.reduxState.gallerySpec[0].year}</p>
+                                    <p className = 'specText'>{this.props.reduxState.gallerySpec[0].title}</p>
+                                    <p className = 'specText'>{this.props.reduxState.gallerySpec[0].year}</p>
                                 </Grid>
                             </Grid>
                         </>
