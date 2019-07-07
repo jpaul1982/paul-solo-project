@@ -3,15 +3,20 @@ import { connect } from 'react-redux';
 
 class Comments extends Component {
 
+ 
+        
+
+
     handleClick = (commentId) => {
         console.log(commentId);
         this.props.dispatch({ type: `DELETE_COMMENT`, payload: commentId });
+
     }
     render() {
         return (
             <div>
 
-                {this.props.reduxState.comments.map((comment, i) => {
+                {this.props.reduxState.comments.length !== 0 && this.props.reduxState.comments.map((comment, i) => {
                     return <div key={i}> {comment.comment}
                         <br />
                         <button onClick={() => this.handleClick(comment.id)}>Delete</button>

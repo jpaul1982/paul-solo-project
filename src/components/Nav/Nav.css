@@ -10,7 +10,7 @@
 
 .nav-link {
   float: left;
-  color: rgb(156, 112, 161);
+
   /* background-color: #0B0B07; */
 
   text-align: center;
@@ -22,9 +22,9 @@
 
   /* these last two make the logout button in
   the nav bar look like another link */
-  border:none;
-  cursor: pointer;
-  outline:0;
+  /* border:none; */
+  /* cursor: pointer;
+  outline:0; */
 }
 
 .nav-link:hover {
