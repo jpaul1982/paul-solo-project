@@ -136,7 +136,6 @@ router.put('/status', (req, res) => {
 router.delete('/delete-piece/:id', (req, res) => {
     console.log('delete route hit just now again!');
     console.log(req.params.id); // req.body keeps logging as empty!!!  Why???
-    
     pool.query(
         `DELETE FROM "pieces" WHERE "id" = $1` , [req.params.id])
         .then(() => { res.sendStatus(200); })
@@ -145,6 +144,18 @@ router.delete('/delete-piece/:id', (req, res) => {
           res.sendStatus(500);
         });
     });
+
+    router.delete('/delete-comment/:id', (req, res) => {
+        console.log('delete-comment route hit just now again!');
+        console.log(req.params.id); 
+         pool.query(
+            `DELETE FROM "comments" WHERE "id" = $1` , [req.params.id])
+            .then(() => { res.sendStatus(200); })
+            .catch((err) => {
+              console.log('Error completing DELETE comment query', err);
+              res.sendStatus(500);
+            });
+        });
     
 
 module.exports = router;

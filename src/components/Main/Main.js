@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Main.css';
-
+import './headStudyBougereau.jpg';
 class Main extends Component {
 
     componentDidMount() {
@@ -39,12 +39,12 @@ class Main extends Component {
                           
 
                 {this.props.reduxState.pieces.length && 
-                <img className='mainImage' alt='Cosntanza' src={this.props.reduxState.pieces[7].image_url}/>    }      
+                <img className='mainImage' alt='Cosntanza' src={this.props.reduxState.pieces[17].image_url}/>    }      
+                                <img className='mainImage' alt='Head Study' src={'headStudyBougereau.jpg'}/>    }     
 
 
 
-
-                {/* <pre>{JSON.stringify(this.props.reduxState.pieces, null, 2)}</pre> */}
+                <pre>{JSON.stringify(this.props.reduxState.pieces, null, 2)}</pre>
             </div>
 
         )
