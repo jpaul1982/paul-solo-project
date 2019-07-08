@@ -2,8 +2,8 @@
     width: 25%;
     height: 25%;
     /* object-fit: scale-down; */
-    margin-left: 900px;
-    margin-top:-2250px;
+    margin-left: 800px;
+    margin-top:-29850px;
     border: inset #b98e71 15px;
     border-radius: 2px;
     box-shadow: 10px 12px 0.5rem rgba(0,0,0,0.5);
@@ -12,10 +12,12 @@
 .artistList {
     list-style: none;
     font-size: 25px;
-    margin-left: 100px;
-    margin-top: 40px;
+    margin-left: 220px;
+    margin-top: 50px;
     color:rgb(147, 108, 151);
     width: 25%;
+    margin-right:0;
+    
 
     }
 

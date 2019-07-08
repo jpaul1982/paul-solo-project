@@ -48,7 +48,9 @@ class AdminPostPiece extends Component {
 
     handleClick = () => {
         console.log(this.state);
+        this.props.history.push('/artistGallery')
         this.props.dispatch({type:`POST_PIECE`, payload: this.state})
+    
 
 
     }

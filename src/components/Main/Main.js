@@ -34,16 +34,14 @@ class Main extends Component {
                         {artist.first_name + " " + artist.last_name}
                     </li>
                 })}
-
-
-
                 {this.props.reduxState.pieces.length &&
-                    <img className='mainImage' alt='Cosntanza' src={this.props.reduxState.pieces[17].image_url} />}
-                {/* <img className='mainImage' alt='Head Study' src={this.headStudyBougereau.jpg} />     */}
+                    // <img className='mainImage' alt='Cosntanza' src={this.props.reduxState.pieces[18].image_url} />}
+                    <>
+                 <img className='mainImage' alt='Head Study' src='https://sr.gallerix.ru/B/73167723/141831826.jpg'/>     
+                    </>     
 
 
-
-                {/* <pre>{JSON.stringify(this.props.reduxState.pieces, null, 2)}</pre> */}
+                /* <pre>{JSON.stringify(this.props.reduxState.pieces, null, 2)}</pre> */}
             </div>
 
         )

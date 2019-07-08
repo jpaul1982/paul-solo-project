@@ -3,9 +3,13 @@ import { connect } from 'react-redux';
 
 class Comments extends Component {
 
- 
-        
+    componentDidMount() {
+        this.getComments();
+    }
 
+    getComments() {
+        this.props.dispatch({type:`FETCH_COMMENTS`})
+    }
 
     handleClick = (commentId) => {
         console.log(commentId);
