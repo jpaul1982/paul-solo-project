@@ -27,14 +27,11 @@ class ArtistDetail extends Component {
         this.props.history.push('/comments');
     }
 
-    // handleViewComment = () => {
-        
-    // }
-
     render() {
         return (
 
             <div className='details'>
+                <img id="artistImg" alt='Artist Portrait' src={this.props.reduxState.pieces} />
                 <div id='artistInfo'>{this.props.artist.first_name + " " + this.props.artist.last_name} </div>
                 <br />
                 <div id='artistMedium'>{this.props.artist.artist_medium} </div>
@@ -42,11 +39,10 @@ class ArtistDetail extends Component {
                 <div id='description'>{this.props.artist.description} </div>
                 <br />
                 <div id='artistGallery' onClick={() => this.handleClick(this.props.artist.id)}>View Artist's Gallery</div>
-                <br/>
-                <textarea rows = '5' cols = '35' onChange={this.handleChange} value={this.state.comment} placeholder="leave comments or inquiries"></textarea>
+                <br />
+                <textarea rows='5' cols='35' onChange={this.handleChange} value={this.state.comment} placeholder="leave comments or inquiries"></textarea>
                 <input onClick={this.handleComment} type="submit"></input>
                 {/* <div onClick={this.handleViewComment}>View Comments</div> */}
-
                 {/* <pre>{JSON.stringify(this.props.artist.id, null, 2)}</pre> */}
                 {/* <pre>{JSON.stringify(this.props.reduxState.pieces, null, 2)}</pre> */}
 

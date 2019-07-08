@@ -4,6 +4,15 @@ const router = express.Router();
 
 // GET Routes
 
+router.get('/selfies', (req, res) => {
+    pool.query(`SELECT * FROM selfies`)
+        .then((result) => { res.send(result.rows); })
+        .catch((error) => {
+            console.log(`Error completing SELECT selfies query`, error);
+            res.sendStatus(500);
+        })
+});
+
 router.get('/artists', (req, res) => {
     const queryText = 'SELECT * FROM artists';
     pool.query(queryText)
@@ -91,26 +100,26 @@ router.post('/add-artist', (req, res) => {
     queryText = `INSERT INTO "artists" ("first_name", "last_name", "artist_medium") VALUES ($1,$2,$3)`;
     queryValues = [req.body.first_name, req.body.last_name, req.body.artist_medium];
     pool.query(queryText, queryValues)
-    .then(() => {res.sendStatus(210); })
-    .catch((err) => {
-        console.log('Error completing INSERT artists query', err);
-        res.sendStatus(500);
-        
-    })
+        .then(() => { res.sendStatus(210); })
+        .catch((err) => {
+            console.log('Error completing INSERT artists query', err);
+            res.sendStatus(500);
+
+        })
 })
 
 router.post('/add-piece', (req, res) => {
     queryText = `INSERT INTO "pieces" ("title", "year", "status","image_url","artist_id") 
     VALUES ($1,$2,$3,$4,$5)`;
     piece = req.body;
-    queryValues = [piece.title, piece.year, piece.status,piece.image_url,piece.artist_id];
+    queryValues = [piece.title, piece.year, piece.status, piece.image_url, piece.artist_id];
     pool.query(queryText, queryValues)
-    .then(() => {res.sendStatus(210); })
-    .catch((err) => {
-        console.log('Error completing INSERT pieces query', err);
-        res.sendStatus(500);
-        
-    })
+        .then(() => { res.sendStatus(210); })
+        .catch((err) => {
+            console.log('Error completing INSERT pieces query', err);
+            res.sendStatus(500);
+
+        })
 })
 
 // PUT Routes
@@ -137,25 +146,25 @@ router.delete('/delete-piece/:id', (req, res) => {
     console.log('delete route hit just now again!');
     console.log(req.params.id); // req.body keeps logging as empty!!!  Why???
     pool.query(
-        `DELETE FROM "pieces" WHERE "id" = $1` , [req.params.id])
+        `DELETE FROM "pieces" WHERE "id" = $1`, [req.params.id])
         .then(() => { res.sendStatus(200); })
         .catch((err) => {
-          console.log('Error completing DELETE piece query', err);
-          res.sendStatus(500);
+            console.log('Error completing DELETE piece query', err);
+            res.sendStatus(500);
         });
-    });
+});
 
-    router.delete('/delete-comment/:id', (req, res) => {
-        console.log('delete-comment route hit just now again!');
-        console.log(req.params.id); 
-         pool.query(
-            `DELETE FROM "comments" WHERE "id" = $1` , [req.params.id])
-            .then(() => { res.sendStatus(200); })
-            .catch((err) => {
-              console.log('Error completing DELETE comment query', err);
-              res.sendStatus(500);
-            });
+router.delete('/delete-comment/:id', (req, res) => {
+    console.log('delete-comment route hit just now again!');
+    console.log(req.params.id);
+    pool.query(
+        `DELETE FROM "comments" WHERE "id" = $1`, [req.params.id])
+        .then(() => { res.sendStatus(200); })
+        .catch((err) => {
+            console.log('Error completing DELETE comment query', err);
+            res.sendStatus(500);
         });
-    
+});
+
 
 module.exports = router;

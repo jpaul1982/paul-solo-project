@@ -48,13 +48,14 @@ class ArtistGallery extends Component {
 
     render() {
         return (
-            <div >
+            <div className='galleryContainer'>
                 {this.props.gallery.length !== 0 && this.props.gallery.map((galleryImage, i) => {
                     return (
-                        <>
+                        <div>
                             <img key={i} alt='galleryImage' onClick={() => this.handleClick(galleryImage.id)} className='galleryImages' src={galleryImage.image_url} />
+                            <br />
                             {this.props.reduxState.user.id === 1 ?
-                                <button onClick={() => this.handleDelete(galleryImage.id, galleryImage.artist_id)}>Delete</button>
+                                <button className='deleteButton' onClick={() => this.handleDelete(galleryImage.id, galleryImage.artist_id)}>Delete</button>
                                 :
                                 <>
                                 </>}
@@ -67,7 +68,7 @@ class ArtistGallery extends Component {
                                     <p onClick={() => this.handleUpdate(galleryImage)}> On Loan </p>
                                 </>
                             }
-                        </>
+                        </div>
                     )
                 })}
 
@@ -90,8 +91,7 @@ class ArtistGallery extends Component {
                 {/* <pre>{JSON.stringify(this.props.reduxState.pieces, null, 2)}</pre> */}
                 {/* <pre>{JSON.stringify(this.props.gallery, null, 2)}</pre> */}
                 {/* <pre>{JSON.stringify(this.props.reduxState.user, null, 2)}</pre> */}
-                <br/>
-                <p onClick={this.handleBack}>Go back to Artist's Page</p>
+                <p id='pageLink' onClick={this.handleBack}>Go back to Artist's Page</p>
             </div>
         )
     }

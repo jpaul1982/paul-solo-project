@@ -32,7 +32,7 @@ class AdminPostArtist extends Component {
 
     handleClick = () => {
         console.log(this.state);
-        this.props.history.push('/admin-add-piece');
+        this.props.history.push('/home');
         this.props.dispatch({type:`POST_ARTIST`, payload: this.state})
 
 
