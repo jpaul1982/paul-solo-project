@@ -4,8 +4,6 @@ import './ArtistGallery.css';
 import Dialog from '@material-ui/core/dialog';
 import Grid from '@material-ui/core/Grid';
 
-
-
 class ArtistGallery extends Component {
 
     componentDidMount() {
@@ -88,10 +86,9 @@ class ArtistGallery extends Component {
                         </>
                 }
                 </Dialog>
-                {/* <pre>{JSON.stringify(this.props.reduxState.pieces, null, 2)}</pre> */}
-                {/* <pre>{JSON.stringify(this.props.gallery, null, 2)}</pre> */}
-                {/* <pre>{JSON.stringify(this.props.reduxState.user, null, 2)}</pre> */}
+
                 <p id='pageLink' onClick={this.handleBack}>Go back to Artist's Page</p>
+                
             </div>
         )
     }

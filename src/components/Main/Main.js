@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Main.css';
 import './headStudyBougereau.jpg';
+
 class Main extends Component {
 
     componentDidMount() {
@@ -21,29 +22,43 @@ class Main extends Component {
             type: `SET_ARTIST_DETAIL`,
             payload: { artist }
         });
+    }
 
+    handleComments = () => {
+        this.props.history.push('/comments')
+    };
+
+    handleNewPiece = () => {
+        this.props.history.push('/admin-post-piece')
     }
 
     render() {
         return (
 
             <div>
-                {this.props.reduxState.artists.map(artist => {
+                {this.props.reduxState.user.id === 1 ?
+                    <>
+                        <p className='adminLinks' onClick={this.handleNewPiece}>Add New Piece </p>
+
+                        <p className='adminLinks' onClick={this.handleComments}>Check Comments</p>
+
+                    </>
+                    :
+                    <>
+                    </>}
+                {this.props.reduxState.artists.map((artist, i) => {
                     return <li className="artistList" onClick={() => this.handleClick(artist)}
-                        key={artist.id}>
+                        key={i}>
                         {artist.first_name + " " + artist.last_name}
                     </li>
                 })}
+
                 {this.props.reduxState.pieces.length &&
-                    // <img className='mainImage' alt='Cosntanza' src={this.props.reduxState.pieces[18].image_url} />}
-                    <>
-                 <img className='mainImage' alt='Head Study' src='https://sr.gallerix.ru/B/73167723/141831826.jpg'/>     
-                    </>     
-
-
-                /* <pre>{JSON.stringify(this.props.reduxState.pieces, null, 2)}</pre> */}
+                    <img className='mainImage' alt='Cosntanza' src={this.props.reduxState.pieces[18].image_url} />}
+                <>
+                </>
+                }
             </div>
-
         )
     }
 }

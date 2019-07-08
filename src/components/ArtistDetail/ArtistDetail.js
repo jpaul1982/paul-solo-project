@@ -3,9 +3,21 @@ import { connect } from 'react-redux';
 import './ArtistDetail.css';
 
 class ArtistDetail extends Component {
+
     state = {
         comment: ''
     }
+
+    componentDidMount() {
+        this.getSelfies();
+    }
+
+    getSelfies() {
+        this.props.dispatch({ type: `FETCH_SELFIES` });
+        console.log('dispatching getSelfies');
+
+    }
+
     handleChange = (event) => {
         console.log(this.state.text);
         this.setState({
@@ -31,7 +43,7 @@ class ArtistDetail extends Component {
         return (
 
             <div className='details'>
-                <img id="artistImg" alt='Artist Portrait' src={this.props.reduxState.pieces} />
+                <img alt='artist image' className='selfie' src={this.props.artist.img_url}/>
                 <div id='artistInfo'>{this.props.artist.first_name + " " + this.props.artist.last_name} </div>
                 <br />
                 <div id='artistMedium'>{this.props.artist.artist_medium} </div>
@@ -42,8 +54,8 @@ class ArtistDetail extends Component {
                 <br />
                 <textarea rows='5' cols='35' onChange={this.handleChange} value={this.state.comment} placeholder="leave comments or inquiries"></textarea>
                 <input onClick={this.handleComment} type="submit"></input>
-                {/* <div onClick={this.handleViewComment}>View Comments</div> */}
-                {/* <pre>{JSON.stringify(this.props.artist.id, null, 2)}</pre> */}
+
+                {/* <pre>{JSON.stringify(this.props.reduxState.selfies, null, 2)}</pre> */}
                 {/* <pre>{JSON.stringify(this.props.reduxState.pieces, null, 2)}</pre> */}
 
             </div>

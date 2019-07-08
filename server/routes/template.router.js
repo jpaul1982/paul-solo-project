@@ -5,7 +5,7 @@ const router = express.Router();
 // GET Routes
 
 router.get('/selfies', (req, res) => {
-    pool.query(`SELECT * FROM selfies`)
+    pool.query(`SELECT * FROM selfies ORDER BY "id"`)
         .then((result) => { res.send(result.rows); })
         .catch((error) => {
             console.log(`Error completing SELECT selfies query`, error);
@@ -14,7 +14,7 @@ router.get('/selfies', (req, res) => {
 });
 
 router.get('/artists', (req, res) => {
-    const queryText = 'SELECT * FROM artists';
+    const queryText = 'SELECT * FROM artists ORDER BY "id"';
     pool.query(queryText)
         .then((result) => { res.send(result.rows); })
         .catch((error) => {
@@ -35,7 +35,7 @@ router.get('/users', (req, res) => {
 
 
 router.get('/pieces', (req, res) => {
-    const queryText = 'SELECT * FROM pieces';
+    const queryText = 'SELECT * FROM pieces ORDER BY "id"';
     pool.query(queryText)
         .then((result) => { res.send(result.rows); })
         .catch((error) => {

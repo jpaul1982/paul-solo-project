@@ -9,7 +9,7 @@ class Comments extends Component {
     }
 
     getComments() {
-        this.props.dispatch({type:`FETCH_COMMENTS`})
+        this.props.dispatch({ type: `FETCH_COMMENTS` })
     }
 
     handleClick = (commentId) => {
@@ -23,11 +23,10 @@ class Comments extends Component {
 
                 {this.props.reduxState.comments.length !== 0 && this.props.reduxState.comments.map((comment, i) => {
                     return <div key={i} className='comments'> {comment.comment}
-                    <br/>
-                  
+                        <br />
                         <button onClick={() => this.handleClick(comment.id)}>Delete</button>
-                        <br/>
-                        <br/>
+                        <br />
+                        <br />
                     </div>
                 })}
 

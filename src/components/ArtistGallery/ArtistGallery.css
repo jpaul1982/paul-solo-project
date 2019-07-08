@@ -18,15 +18,13 @@
   padding:0;
   float:left;
   max-height: 25px;
-  
-
 }
-
 
 #dialog {
     position: absolute;
   
 }
+
 #gridContainer {
     background-color: black;
 
