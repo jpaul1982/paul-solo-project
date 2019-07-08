@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './Comments.css'
 
 class Comments extends Component {
 
@@ -21,9 +22,12 @@ class Comments extends Component {
             <div>
 
                 {this.props.reduxState.comments.length !== 0 && this.props.reduxState.comments.map((comment, i) => {
-                    return <div key={i}> {comment.comment}
-                        <br />
+                    return <div key={i} className='comments'> {comment.comment}
+                    <br/>
+                  
                         <button onClick={() => this.handleClick(comment.id)}>Delete</button>
+                        <br/>
+                        <br/>
                     </div>
                 })}
 
