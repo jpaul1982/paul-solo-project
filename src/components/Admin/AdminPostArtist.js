@@ -12,42 +12,36 @@ class AdminPostArtist extends Component {
     }
 
     handleFirst = (event) => {
-        console.log(this.state.first_name);
         this.setState({
             first_name: event.target.value,
         })
     }
 
     handleLast = (event) => {
-        console.log(this.state.last_name);
         this.setState({
             last_name: event.target.value,
         })
     }
 
     handleImage = (event) => {
-        console.log(this.state.image_url);
         this.setState({
             img_url: event.target.value,
         })
     }
 
     handleMedium = (event) => {
-        console.log(this.state.artist_medium);
         this.setState({
            artist_medium: event.target.value,
         })
     }
 
     handleDescription = (event) => {
-        console.log(this.state.description);
         this.setState({
            description: event.target.value,
         })
     }
 
     handleClick = () => {
-        console.log(this.state);
         this.props.history.push('/home');
         this.props.dispatch({type:`POST_ARTIST`, payload: this.state});
         this.props.dispatch({ type: `FETCH_ARTISTS` });

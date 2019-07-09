@@ -16,7 +16,6 @@ class Main extends Component {
         this.props.dispatch({ type: `FETCH_PIECES` })
     }
     handleClick = (artist) => {
-        console.log(artist);
         this.props.history.push('/artistDetail');
         this.props.dispatch({
             type: `SET_ARTIST_DETAIL`,
@@ -29,8 +28,13 @@ class Main extends Component {
 
             <div>
                 <h1 id='emerson'>Emerson Gallery</h1>
+                <div className='current'>
+                        <p>Currently Available To View</p>
+                        <p id='string'>"String of Pearls" by William Paxton</p>
+                    </div>
                 {this.props.reduxState.pieces.length &&
                     <img className='mainImage' alt='Main Image' src={image} />}
+                
                     <h2 id='collection'>Current Collection:</h2>
                 <ul className="artistList">
                 {this.props.reduxState.artists.map((artist, i) => {
