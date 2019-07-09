@@ -48,8 +48,9 @@ class AdminPostPiece extends Component {
 
     handleClick = () => {
         console.log(this.state);
-        this.props.history.push('/artistGallery')
+        this.props.history.push('/artistDetail')
         this.props.dispatch({type:`POST_PIECE`, payload: this.state})
+        this.props.dispatch({type:`FETCH_PIECES`});
     
 
 

@@ -20,7 +20,8 @@ class Comments extends Component {
     render() {
         return (
             <div>
-
+                <h1 className='commentsHeader'>User Comments:</h1>
+                <br/>
                 {this.props.reduxState.comments.length !== 0 && this.props.reduxState.comments.map((comment, i) => {
                     return <div key={i} className='comments'> {comment.comment}
                         <br />

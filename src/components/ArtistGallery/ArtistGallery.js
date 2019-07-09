@@ -59,11 +59,11 @@ class ArtistGallery extends Component {
                                 </>}
                             {galleryImage.status ?
                                 <>
-                                    <p onClick={() => this.handleUpdate(galleryImage)}> Available </p>
+                                    <p className='status' onClick={() => this.handleUpdate(galleryImage)}> Available </p>
                                 </>
                                 :
                                 <>
-                                    <p onClick={() => this.handleUpdate(galleryImage)}> On Loan </p>
+                                    <p className='status' onClick={() => this.handleUpdate(galleryImage)}> On Loan </p>
                                 </>
                             }
                         </div>
@@ -88,7 +88,7 @@ class ArtistGallery extends Component {
                 </Dialog>
 
                 <p id='pageLink' onClick={this.handleBack}>Go back to Artist's Page</p>
-                
+
             </div>
         )
     }

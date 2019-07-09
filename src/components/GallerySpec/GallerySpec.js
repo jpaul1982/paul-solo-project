@@ -3,17 +3,7 @@ import { connect } from 'react-redux';
 import './GallerySpec.css';
 
 
-// const styles = {
-//     modal: {
-//         backgroundImage:
-//     }
-// }
-
-
-
 class GallerySpec extends Component {
-
-   
 
     render() {
         return (

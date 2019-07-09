@@ -1,23 +1,55 @@
 .mainImage{
-    width: 25%;
-    height: 25%;
-    /* object-fit: scale-down; */
-    margin-left: 800px;
-    margin-top:-29850px;
-    border: inset #b98e71 15px;
+    width: 35%;
+    height: 35%;
+    margin-top: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: inset #b98e71 25px;
     border-radius: 2px;
     box-shadow: 10px 12px 0.5rem rgba(0,0,0,0.5);
 }
 .artistList {
+    column-width: 150px;
+    columns: 2;
     list-style: none;
-    font-size: 25px;
+    font-size: 30px;
     margin-left: 220px;
     margin-top: 50px;
+    margin-right:220px;
+    margin-bottom: 200px;
     color:rgb(147, 108, 151);
-    width: 25%;
+    width: 55%;
     margin-right:0;
+    column-gap: 520px;
+   
 }
-.artistList:hover{
-    background-image: url("https://img.freepik.com/free-photo/close-up-white-marble-texture-background_53876-63512.jpg?size=626&ext=jpg");    
+#artistItem {
+    padding: 20px;
+    width: 500px;
+    
 }
 
+#artistItem:hover{
+    color:rgb(220, 162, 224);
+   
+}
+
+#emerson{
+    margin-left: 200px;
+    margin-top:-20px;
+}
+
+#collection {
+    /* font-family: 'Arizonia', cursive; */
+    text-align: center;
+    font-size: 35px;
+    color:rgb(136, 99, 139);
+    margin-top: 150px;
+    
+}
+
+.adminLinks {
+    font-size: 15px;
+    margin-left: -20px;
+}

@@ -1,4 +1,11 @@
 .comments {
     margin: auto;
     text-align: center;
+    font-size: 20px;
+}
+
+.commentsHeader {
+    margin: auto;
+    text-align: center;
+    font-size: 30px;
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Main.css';
-import './headStudyBougereau.jpg';
+import image from './String_of_Pearls.jpg';
 
 class Main extends Component {
 
@@ -24,40 +24,36 @@ class Main extends Component {
         });
     }
 
-    handleComments = () => {
-        this.props.history.push('/comments')
-    };
-
-    handleNewPiece = () => {
-        this.props.history.push('/admin-post-piece')
-    }
-
     render() {
         return (
 
             <div>
+                <h1 id='emerson'>Emerson Gallery</h1>
+                {this.props.reduxState.pieces.length &&
+                    <img className='mainImage' alt='Main Image' src={image} />}
+                    <h2 id='collection'>Current Collection:</h2>
+                <ul className="artistList">
+                {this.props.reduxState.artists.map((artist, i) => {
+                    return (
+                    <li id="artistItem" onClick={() => this.handleClick(artist)}
+                        key={i}>
+                        {artist.first_name + " " + artist.last_name}
+                    </li>)
+                })}
+                </ul>
+
                 {this.props.reduxState.user.id === 1 ?
                     <>
-                        <p className='adminLinks' onClick={this.handleNewPiece}>Add New Piece </p>
+                        <p className='adminLinks' onClick={() => { this.props.history.push('/comments') }}>Check Comments </p>
 
-                        <p className='adminLinks' onClick={this.handleComments}>Check Comments</p>
+                        <p className='adminLinks' onClick={() => { this.props.history.push('/admin-post-piece') }}>Add New Piece</p>
+
+                        <p className='adminLinks' onClick={() => { this.props.history.push('/admin-post-artist') }}>Add New Artist</p>
 
                     </>
                     :
                     <>
                     </>}
-                {this.props.reduxState.artists.map((artist, i) => {
-                    return <li className="artistList" onClick={() => this.handleClick(artist)}
-                        key={i}>
-                        {artist.first_name + " " + artist.last_name}
-                    </li>
-                })}
-
-                {this.props.reduxState.pieces.length &&
-                    <img className='mainImage' alt='Cosntanza' src={this.props.reduxState.pieces[18].image_url} />}
-                <>
-                </>
-                }
             </div>
         )
     }

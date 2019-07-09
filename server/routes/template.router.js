@@ -86,8 +86,8 @@ router.get('/gallerySpec/:id', (req, res) => {
 
 router.post('/comments', (req, res) => {
     console.log(req.body);
-    queryText = `INSERT INTO "comments" ("comment", "artist_id") VALUES ($1, $2)`;
-    queryValues = [req.body.comment, req.body.artist_id];
+    queryText = `INSERT INTO "comments"("comment") VALUES ($1)`;
+    queryValues = [req.body.comment];
     pool.query(queryText, queryValues)
         .then(() => { res.sendStatus(201); })
         .catch((err) => {
@@ -97,8 +97,10 @@ router.post('/comments', (req, res) => {
 });
 
 router.post('/add-artist', (req, res) => {
-    queryText = `INSERT INTO "artists" ("first_name", "last_name", "artist_medium") VALUES ($1,$2,$3)`;
-    queryValues = [req.body.first_name, req.body.last_name, req.body.artist_medium];
+    console.log(req.body);
+    
+    queryText = `INSERT INTO "artists" ("first_name", "last_name", "artist_medium", "img_url", "description") VALUES ($1,$2,$3,$4,$5)`;
+    queryValues = [req.body.first_name, req.body.last_name, req.body.artist_medium, req.body.img_url, req.body.description];
     pool.query(queryText, queryValues)
         .then(() => { res.sendStatus(210); })
         .catch((err) => {

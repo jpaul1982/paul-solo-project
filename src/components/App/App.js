@@ -9,10 +9,8 @@ import {connect} from 'react-redux';
 import Nav from '../Nav/Nav';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import Main from '../Main/Main';
-import './App.css';
 import ArtistDetail from '../ArtistDetail/ArtistDetail';
 import ArtistGallery from '../ArtistGallery/ArtistGallery';
 import GallerySpec from '../GallerySpec/GallerySpec';
@@ -20,6 +18,7 @@ import Comments from '../Comments/Comments';
 import AdminPostArtist from '../Admin/AdminPostArtist';
 import AdminPostPiece from '../Admin/AdminPostPiece';
 import LoginPage from '../LoginPage/LoginPage';
+import './App.css';
 
 class App extends Component {
   componentDidMount () {
