@@ -13,7 +13,6 @@ class Comments extends Component {
     }
 
     handleClick = (commentId) => {
-        console.log(commentId);
         this.props.dispatch({ type: `DELETE_COMMENT`, payload: commentId });
 
     }
@@ -30,8 +29,6 @@ class Comments extends Component {
                         <br />
                     </div>
                 })}
-
-                {/* <pre>{JSON.stringify(this.props.reduxState.comments, null, 2)}</pre> */}
             </div>
         )
     }

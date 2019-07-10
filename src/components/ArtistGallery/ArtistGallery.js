@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './ArtistGallery.css';
 import Dialog from '@material-ui/core/dialog';
 import Grid from '@material-ui/core/Grid';
+import { Redirect } from 'react-router-dom';
 
 class ArtistGallery extends Component {
 
@@ -22,7 +23,6 @@ class ArtistGallery extends Component {
 
     handleClick = (galleryImageId) => {
         console.log(this.props.gallery);
-        // this.props.history.push('/gallerySpec');
         this.setState({
             isOpen: true
         })
@@ -30,13 +30,11 @@ class ArtistGallery extends Component {
     }
 
     handleUpdate = (galleryImage) => {
-        console.log(galleryImage);
         this.props.reduxState.user.id === 1 &&
             this.props.dispatch({ type: `UPDATE_GALLERY_ITEM`, payload: { galleryImage } });
     }
 
     handleDelete = (galleryImageId, galleryImageArtistId) => {
-        console.log(galleryImageId);
         this.props.dispatch({ type: `DELETE_PIECE`, payload: { galleryImageId, galleryImageArtistId } })
     }
 
@@ -47,30 +45,39 @@ class ArtistGallery extends Component {
     render() {
         return (
             <div className='galleryContainer'>
-                {this.props.gallery.length !== 0 && this.props.gallery.map((galleryImage, i) => {
-                    return (
-                        <div>
-                            <img key={i} alt='galleryImage' onClick={() => this.handleClick(galleryImage.id)} className='galleryImages' src={galleryImage.image_url} />
-                            <br />
-                            {this.props.reduxState.user.id === 1 ?
-                                <button className='deleteButton' onClick={() => this.handleDelete(galleryImage.id, galleryImage.artist_id)}>Delete</button>
-                                :
-                                <>
-                                </>}
-                            {galleryImage.status ?
-                                <>
-                                    <p className='status' onClick={() => this.handleUpdate(galleryImage)}> Available </p>
-                                </>
-                                :
-                                <>
-                                    <p className='status' onClick={() => this.handleUpdate(galleryImage)}> On Loan </p>
-                                </>
-                            }
-                        </div>
-                    )
-                })}
+                {this.props.reduxState.artistDetail.length !== 0 ?
+                <>
 
-                <Dialog id="dialog" open={this.state.isOpen} > {
+                    {this.props.gallery.length !== 0 && this.props.gallery.map((galleryImage, i) => {
+                            return (
+                                <div>
+
+
+                                    <img key={i} alt='galleryImage' onClick={() => this.handleClick(galleryImage.id)} className='galleryImages' src={galleryImage.image_url} />
+                                    <br />
+                                    {this.props.reduxState.user.id === 1 ?
+                                        <button className='deleteButton' onClick={() => this.handleDelete(galleryImage.id, galleryImage.artist_id)}>Delete</button>
+                                        :
+                                        <>
+                                        </>}
+                                    {galleryImage.status ?
+                                        <>
+                                            <p className='status' onClick={() => this.handleUpdate(galleryImage)}> Available </p>
+                                        </>
+                                        :
+                                        <>
+                                            <p className='status' onClick={() => this.handleUpdate(galleryImage)}> On Loan </p>
+                                        </>
+                                    }
+                                    
+                
+                        </div>
+
+                            )
+                        })
+                    }
+
+                    < Dialog id="dialog" open={this.state.isOpen} > {
                     this.props.reduxState.gallerySpec.length ?
                         <>
                             <Grid container justify='center'>
@@ -87,9 +94,11 @@ class ArtistGallery extends Component {
                 }
                 </Dialog>
 
-                <p id='pageLink' onClick={this.handleBack}>Go back to Artist's Page</p>
-
-            </div>
+            <p id='pageLink' onClick={this.handleBack}>Go back to Artist's Page</p>
+            </>
+            :
+            <Redirect to ='/home'/>}
+            </div >
         )
     }
 }

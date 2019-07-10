@@ -70,6 +70,7 @@ class LoginPage extends Component {
               type="submit"
               name="submit"
               value="Log In"
+              // onClick={() => { this.props.history.push('/home') }}
             />
           </div>
         </form>

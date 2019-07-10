@@ -13,7 +13,6 @@ import postPieceSaga from './postPieceSaga';
 import deletePieceSaga from './deletePieceSaga';
 import fetchUserDataSaga from './userDataSaga';
 import deleteCommentSaga from './deleteCommentSaga';
-import selfiesSaga from './selfiesSaga';
 
 
 // rootSaga is the primary saga.
@@ -39,6 +38,5 @@ export default function* rootSaga() {
     deletePieceSaga(),
     fetchUserDataSaga(),
     deleteCommentSaga(),
-    selfiesSaga(),
   ]);
 }

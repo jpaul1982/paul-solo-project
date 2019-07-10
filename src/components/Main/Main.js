@@ -33,7 +33,7 @@ class Main extends Component {
                         <p id='string'>"String of Pearls" by William Paxton</p>
                     </div>
                 {this.props.reduxState.pieces.length &&
-                    <img className='mainImage' alt='Main Image' src={image} />}
+                    <img className='mainImage' alt='Main' src={image} />}
                 
                     <h2 id='collection'>Current Collection:</h2>
                 <ul className="artistList">
