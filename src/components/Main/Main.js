@@ -28,6 +28,20 @@ class Main extends Component {
 
             <div>
                 <h1 id='emerson'>Emerson Gallery</h1>
+                {this.props.reduxState.user.id === 1 ?
+                    <>
+                        <p className='adminLinks'><u>Admin Options</u></p>
+
+                        <p className='adminLinks' onClick={() => { this.props.history.push('/comments') }}>Check Comments </p>
+
+                        <p className='adminLinks' onClick={() => { this.props.history.push('/admin-post-piece') }}>Add New Piece</p>
+
+                        <p className='adminLinks' onClick={() => { this.props.history.push('/admin-post-artist') }}>Add New Artist</p>
+
+                    </>
+                    :
+                    <>
+                    </>}
                 <div className='current'>
                         <p>Currently Available To View</p>
                         <p id='string'>"String of Pearls" by William Paxton</p>
@@ -46,18 +60,7 @@ class Main extends Component {
                 })}
                 </ul>
 
-                {this.props.reduxState.user.id === 1 ?
-                    <>
-                        <p className='adminLinks' onClick={() => { this.props.history.push('/comments') }}>Check Comments </p>
-
-                        <p className='adminLinks' onClick={() => { this.props.history.push('/admin-post-piece') }}>Add New Piece</p>
-
-                        <p className='adminLinks' onClick={() => { this.props.history.push('/admin-post-artist') }}>Add New Artist</p>
-
-                    </>
-                    :
-                    <>
-                    </>}
+             
             </div>
         )
     }

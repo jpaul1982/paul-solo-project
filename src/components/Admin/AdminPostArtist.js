@@ -11,34 +11,10 @@ class AdminPostArtist extends Component {
         img_url:''
     }
 
-    handleFirst = (event) => {
+    handleChangeFor = propertyName => (event) => {
         this.setState({
-            first_name: event.target.value,
-        })
-    }
-
-    handleLast = (event) => {
-        this.setState({
-            last_name: event.target.value,
-        })
-    }
-
-    handleImage = (event) => {
-        this.setState({
-            img_url: event.target.value,
-        })
-    }
-
-    handleMedium = (event) => {
-        this.setState({
-           artist_medium: event.target.value,
-        })
-    }
-
-    handleDescription = (event) => {
-        this.setState({
-           description: event.target.value,
-        })
+            [propertyName]: event.target.value,
+        });
     }
 
     handleClick = () => {
@@ -52,11 +28,11 @@ class AdminPostArtist extends Component {
         return (
             <>
                 <h2>Add New Artist</h2>
-                <input onChange={this.handleFirst} value={this.state.first_name} placeholder='artist first name'></input>
-                <input onChange={this.handleLast} value={this.state.last_name} placeholder='artist last name'></input>
-                <input onChange={this.handleMedium} value={this.state.artist_medium} placeholder='artist medium'></input>
-                <input onChange={this.handleImage} value={this.state.img_url} placeholder='Image Url'></input>
-                <input onChange={this.handleDescription} value={this.state.description} placeholder='Short Artist Bio'></input>
+                <input onChange={this.handleChangeFor('first_name')} type='text' name='first_name' value={this.state.first_name} placeholder='artist first name'></input>
+                <input onChange={this.handleChangeFor('last_name')}  type='text'name='last_name' value={this.state.last_name} placeholder='artist last name'></input>
+                <input onChange={this.handleChangeFor('artist_medium')} type='text' name='artist_medium' value={this.state.artist_medium} placeholder='artist medium'></input>
+                <input onChange={this.handleChangeFor('img_url')} type='text' name='img_url' value={this.state.img_url} placeholder='Image Url'></input>
+                <input onChange={this.handleChangeFor('description')} type='text' name='description' value={this.state.description} placeholder='Short Artist Bio'></input>
 
                 <input onClick={this.handleClick} type="submit"></input>
 

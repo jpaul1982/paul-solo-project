@@ -51,7 +51,8 @@
 
 .adminLinks {
     font-size: 15px;
-    margin-left: -20px;
+    /* margin-left: 5px; */
+    width: 200px;
 }
 
 .current {
