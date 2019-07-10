@@ -21,17 +21,15 @@
     width: 55%;
     margin-right:0;
     column-gap: 520px;
-   
 }
+
 #artistItem {
     padding: 20px;
     width: 500px;
-    
 }
 
 #artistItem:hover{
     color:rgb(220, 162, 224);
-   
 }
 
 #emerson{
@@ -46,12 +44,10 @@
     color:rgb(136, 99, 139);
     margin-top: 50px;
     margin-bottom:-20px;
-    
 }
 
 .adminLinks {
     font-size: 15px;
-    /* margin-left: 5px; */
     width: 200px;
 }
 
@@ -62,4 +58,12 @@
 
 #string{
     margin-right: 100px;
+}
+
+#links {
+    cursor: pointer;
+}
+
+.links {
+    cursor: pointer;
 }

@@ -10,24 +10,19 @@ class AboutPage extends Component {
 
   state = {
     comment: ''
-}
+  }
 
   handleComment = () => {
-    console.log(this.state);
     this.props.dispatch({ type: `SET_COMMENT`, payload: { ...this.state } })
     this.props.history.push('/comments');
   }
   handleChange = (event) => {
-    console.log(this.state.text);
     this.setState({
-        comment: event.target.value
+      comment: event.target.value
     })
-}
+  }
   render() {
     return (
-
-
-
       <div>
         <div>
           <p>
@@ -36,8 +31,8 @@ class AboutPage extends Component {
             and receive user feedback.
       </p>
 
-      <p>
-        Please feel free to leave comments or inquiries below!
+          <p>
+            Please feel free to leave comments or inquiries below!
       </p>
           <textarea rows='5' cols='35' onChange={this.handleChange} value={this.state.comment} placeholder="leave comments or inquiries"></textarea>
           <input onClick={this.handleComment} type="submit"></input>

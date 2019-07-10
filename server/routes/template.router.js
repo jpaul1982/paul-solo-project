@@ -85,7 +85,6 @@ router.get('/gallerySpec/:id', (req, res) => {
 // POST routes
 
 router.post('/comments', (req, res) => {
-    console.log(req.body);
     queryText = `INSERT INTO "comments"("comment") VALUES ($1)`;
     queryValues = [req.body.comment];
     pool.query(queryText, queryValues)
@@ -97,8 +96,6 @@ router.post('/comments', (req, res) => {
 });
 
 router.post('/add-artist', (req, res) => {
-    console.log(req.body);
-    
     queryText = `INSERT INTO "artists" ("first_name", "last_name", "artist_medium", "img_url", "description") VALUES ($1,$2,$3,$4,$5)`;
     queryValues = [req.body.first_name, req.body.last_name, req.body.artist_medium, req.body.img_url, req.body.description];
     pool.query(queryText, queryValues)
@@ -127,8 +124,6 @@ router.post('/add-piece', (req, res) => {
 // PUT Routes
 
 router.put('/status', (req, res) => {
-    console.log('update route hit!');
-    console.log(req.body);
     const queryText = `UPDATE "pieces" SET "status" = $1 WHERE "id" = $2`;
     const queryValues = [req.body.status, req.body.id];
     pool.query(queryText, queryValues)
@@ -145,8 +140,6 @@ router.put('/status', (req, res) => {
 // Delete Routes
 
 router.delete('/delete-piece/:id', (req, res) => {
-    console.log('delete route hit just now again!');
-    console.log(req.params.id); // req.body keeps logging as empty!!!  Why???
     pool.query(
         `DELETE FROM "pieces" WHERE "id" = $1`, [req.params.id])
         .then(() => { res.sendStatus(200); })
@@ -157,8 +150,6 @@ router.delete('/delete-piece/:id', (req, res) => {
 });
 
 router.delete('/delete-comment/:id', (req, res) => {
-    console.log('delete-comment route hit just now again!');
-    console.log(req.params.id);
     pool.query(
         `DELETE FROM "comments" WHERE "id" = $1`, [req.params.id])
         .then(() => { res.sendStatus(200); })

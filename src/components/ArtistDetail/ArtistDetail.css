@@ -4,7 +4,6 @@
 
 #artistInfo {
     font-size: 50px;
- 
 }
 
 #description {
@@ -26,6 +25,7 @@
 #artistGallery {
     font-size: 35px;
     width: 35%;
+    cursor: pointer;
 }
 
 
@@ -35,4 +35,5 @@
     float:right;
     margin-left: 50px;
     border: inset #b98e71 8px;
+ 
 }

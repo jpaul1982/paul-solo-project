@@ -22,7 +22,6 @@ class ArtistGallery extends Component {
     }
 
     handleClick = (galleryImageId) => {
-        console.log(this.props.gallery);
         this.setState({
             isOpen: true
         })
@@ -46,13 +45,10 @@ class ArtistGallery extends Component {
         return (
             <div className='galleryContainer'>
                 {this.props.reduxState.artistDetail.length !== 0 ?
-                <>
-
-                    {this.props.gallery.length !== 0 && this.props.gallery.map((galleryImage, i) => {
+                    <>
+                        {this.props.gallery.length !== 0 && this.props.gallery.map((galleryImage, i) => {
                             return (
-                                <div>
-
-
+                                <div key={i}>
                                     <img key={i} alt='galleryImage' onClick={() => this.handleClick(galleryImage.id)} className='galleryImages' src={galleryImage.image_url} />
                                     <br />
                                     {this.props.reduxState.user.id === 1 ?
@@ -69,35 +65,32 @@ class ArtistGallery extends Component {
                                             <p className='status' onClick={() => this.handleUpdate(galleryImage)}> On Loan </p>
                                         </>
                                     }
-                                    
-                
-                        </div>
-
+                                </div>
                             )
                         })
-                    }
+                        }
 
-                    < Dialog id="dialog" open={this.state.isOpen} > {
-                    this.props.reduxState.gallerySpec.length ?
-                        <>
-                            <Grid container justify='center'>
-                                <Grid id='gridContainer' item xs={12}>
-                                    <img onClick={this.closeDialog} className='specImg' alt='specific piece' src={this.props.reduxState.gallerySpec[0].image_url} />
-                                    <p className='specText'>{this.props.reduxState.gallerySpec[0].title}</p>
-                                    <p className='specText'>{this.props.reduxState.gallerySpec[0].year}</p>
-                                </Grid>
-                            </Grid>
-                        </>
-                        :
-                        <>
-                        </>
-                }
-                </Dialog>
+                        < Dialog id="dialog" open={this.state.isOpen} > {
+                            this.props.reduxState.gallerySpec.length ?
+                                <>
+                                    <Grid container justify='center'>
+                                        <Grid id='gridContainer' item xs={12}>
+                                            <img onClick={this.closeDialog} className='specImg' alt='specific piece' src={this.props.reduxState.gallerySpec[0].image_url} />
+                                            <p className='specText'>{this.props.reduxState.gallerySpec[0].title}</p>
+                                            <p className='specText'>{this.props.reduxState.gallerySpec[0].year}</p>
+                                        </Grid>
+                                    </Grid>
+                                </>
+                                :
+                                <>
+                                </>
+                        }
+                        </Dialog>
 
-            <p id='pageLink' onClick={this.handleBack}>Go back to Artist's Page</p>
-            </>
-            :
-            <Redirect to ='/home'/>}
+                        <p id='pageLink' onClick={this.handleBack}>Go back to Artist's Page</p>
+                    </>
+                    :
+                    <Redirect to='/home' />}
             </div >
         )
     }

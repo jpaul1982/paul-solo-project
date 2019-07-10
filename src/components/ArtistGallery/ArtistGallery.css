@@ -5,6 +5,7 @@
     border: inset #b98e71 3px;
     padding: 15px;
     margin: 15px;
+    cursor:pointer;
 }
 
 .galleryImages:hover{
@@ -56,4 +57,5 @@
 
 .status {
     font-size: 15px;
+    cursor:pointer;
 }

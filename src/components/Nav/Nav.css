@@ -16,6 +16,7 @@
   padding: 24px 10px;
   text-decoration: none;
   font-size: 15px;
+  color:rgb(151, 126, 172);
   font-family: 'Cormorant Garamond', serif;
 
 
@@ -27,11 +28,9 @@
 }
 
 .nav-link:hover {
-  /* background-color: rgb(210, 156, 219); */
     background-image: url("https://img.freepik.com/free-photo/close-up-white-marble-texture-background_53876-63512.jpg?size=626&ext=jpg");    
 
 }
-
 .nav-right {
   float: right;
 }

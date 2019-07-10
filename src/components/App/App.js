@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   HashRouter as Router,
   Route,
   Redirect,
   Switch,
 } from 'react-router-dom';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Nav from '../Nav/Nav';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
@@ -21,26 +21,25 @@ import LoginPage from '../LoginPage/LoginPage';
 import './App.css';
 
 class App extends Component {
-  componentDidMount () {
-    this.props.dispatch({type: 'FETCH_USER'})
+  componentDidMount() {
+    this.props.dispatch({ type: 'FETCH_USER' })
   }
 
-
   render() {
-    return ( 
+    return (
       <Router>
         <div>
-        
+
           <Nav />
           <Switch>
             {/* <Route exact path="/home" component={Main}/> */}
-            <Route path='/artistDetail' component={ArtistDetail}/>
-            <Route path='/artistGallery' component={ArtistGallery}/>
-            <Route path='/gallerySpec' component={GallerySpec}/>
-            <Route path='/user/login' component={LoginPage}/>
-            <ProtectedRoute path='/comments' component={Comments}/>
-            <ProtectedRoute path='/admin-post-artist' component={AdminPostArtist}/>
-            <ProtectedRoute path='/admin-post-piece' component={AdminPostPiece}/>
+            <Route path='/artistDetail' component={ArtistDetail} />
+            <Route path='/artistGallery' component={ArtistGallery} />
+            <Route path='/gallerySpec' component={GallerySpec} />
+            <Route path='/user/login' component={LoginPage} />
+            <ProtectedRoute path='/comments' component={Comments} />
+            <ProtectedRoute path='/admin-post-artist' component={AdminPostArtist} />
+            <ProtectedRoute path='/admin-post-piece' component={AdminPostPiece} />
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
             {/* Visiting localhost:3000/about will show the about page.
@@ -69,10 +68,10 @@ class App extends Component {
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
-    
         </div>
       </Router>
-  )}
+    )
+  }
 }
 
 export default connect()(App);

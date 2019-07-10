@@ -25,42 +25,41 @@ class Main extends Component {
 
     render() {
         return (
-
             <div>
                 <h1 id='emerson'>Emerson Gallery</h1>
                 {this.props.reduxState.user.id === 1 ?
                     <>
                         <p className='adminLinks'><u>Admin Options</u></p>
 
-                        <p className='adminLinks' onClick={() => { this.props.history.push('/comments') }}>Check Comments </p>
+                        <p id='links' className='adminLinks' onClick={() => { this.props.history.push('/comments') }}>Check Comments </p>
 
-                        <p className='adminLinks' onClick={() => { this.props.history.push('/admin-post-piece') }}>Add New Piece</p>
+                        <p id='links' className='adminLinks' onClick={() => { this.props.history.push('/admin-post-piece') }}>Add New Piece</p>
 
-                        <p className='adminLinks' onClick={() => { this.props.history.push('/admin-post-artist') }}>Add New Artist</p>
+                        <p id='links' className='adminLinks' onClick={() => { this.props.history.push('/admin-post-artist') }}>Add New Artist</p>
 
                     </>
                     :
                     <>
                     </>}
                 <div className='current'>
-                        <p>Currently Available To View</p>
-                        <p id='string'>"String of Pearls" by William Paxton</p>
-                    </div>
+                    <p>Currently Available To View</p>
+                    <p id='string'>"String of Pearls" by William Paxton</p>
+                </div>
                 {this.props.reduxState.pieces.length &&
                     <img className='mainImage' alt='Main' src={image} />}
-                
-                    <h2 id='collection'>Current Collection:</h2>
+
+                <h2 id='collection'>Current Collection:</h2>
                 <ul className="artistList">
-                {this.props.reduxState.artists.map((artist, i) => {
-                    return (
-                    <li id="artistItem" onClick={() => this.handleClick(artist)}
-                        key={i}>
-                        {artist.first_name + " " + artist.last_name}
-                    </li>)
-                })}
+                    {this.props.reduxState.artists.map((artist, i) => {
+                        return (
+                            <li className='links' id="artistItem" onClick={() => this.handleClick(artist)}
+                                key={i}>
+                                {artist.first_name + " " + artist.last_name}
+                            </li>)
+                    })}
                 </ul>
 
-             
+
             </div>
         )
     }
