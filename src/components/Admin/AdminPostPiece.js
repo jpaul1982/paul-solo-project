@@ -12,19 +12,16 @@ class AdminPostPiece extends Component {
         artist_id: ''
     }
 
-    handleChangeFor = propertyName => (event) => {
-        console.log(event.target.value);
+    componentDidMount() {
+        this.props.dispatch({type:`FETCH_ARTISTS`})
+    }
 
+    handleChangeFor = propertyName => (event) => {
         this.setState({
             [propertyName]: event.target.value,
         });
     }
 
-    handleArtist_id = (event) => {
-        this.setState({
-            artist_id: event.target.value,
-        })
-    }
     handleClick = () => {
         this.props.history.push('/artistDetail')
         this.props.dispatch({ type: `POST_PIECE`, payload: this.state })
@@ -40,7 +37,7 @@ class AdminPostPiece extends Component {
                 <input onChange={this.handleChangeFor("image_url")} name="image_url" type="text" value={this.state.image_url} placeholder='url of piece'></input>
                 <select onChange={this.handleChangeFor("artist_id")} className='dropdown' name='Artist_id'>
                     {this.props.reduxState.artists.map((artist, i) => {
-                        return <option value={artist.id} key={i}>{artist.first_name}{artist.id}</option>
+                        return <option value={artist.id} key={i}>{artist.first_name} {artist.id}</option>
                     })}
                 </select>
                 <input onClick={this.handleClick} type="submit"></input>

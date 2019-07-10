@@ -28,7 +28,8 @@
 }
 
 .nav-link:hover {
-    background-image: url("https://img.freepik.com/free-photo/close-up-white-marble-texture-background_53876-63512.jpg?size=626&ext=jpg");    
+    /* background-image: url("https://img.freepik.com/free-photo/close-up-white-marble-texture-background_53876-63512.jpg?size=626&ext=jpg");     */
+    color:rgb(82, 68, 93);
 
 }
 .nav-right {

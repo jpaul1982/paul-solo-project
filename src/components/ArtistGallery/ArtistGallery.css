@@ -20,9 +20,18 @@
 }
 
 .deleteButton {
-  padding:0;
-  float:left;
-  max-height: 25px;
+  background-color:rgb(208, 174, 236);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+
 }
 
 #dialog {
@@ -58,4 +67,9 @@
 .status {
     font-size: 15px;
     cursor:pointer;
+    margin-top: -40px;
+    margin-left: 50px;
+    display: inline-block;
+
+
 }
