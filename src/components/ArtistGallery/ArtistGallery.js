@@ -10,7 +10,7 @@ class ArtistGallery extends Component {
     componentDidMount() {
         this.props.dispatch({ type: `FETCH_USER_DATA` })
     }
-
+    // sets default state of isOpen
     state = {
         isOpen: false
     }
@@ -20,19 +20,21 @@ class ArtistGallery extends Component {
             isOpen: false
         })
     }
-
+    // sends dispatch to make get request to saga with image_id of gallery item as payload, will also 
+    //toggle dialog window 
     handleClick = (galleryImageId) => {
         this.setState({
             isOpen: true
         })
         this.props.dispatch({ type: `FETCH_GALLERY_SPEC`, payload: { galleryImageId } });
     }
-
+    // sends dispatch to make put request to saga.
     handleUpdate = (galleryImage) => {
+    // this requires that only user logged in with id of 1 can make this dispatch
         this.props.reduxState.user.id === 1 &&
             this.props.dispatch({ type: `UPDATE_GALLERY_ITEM`, payload: { galleryImage } });
     }
-
+    // sends dispatch to delete item 
     handleDelete = (galleryImageId, galleryImageArtistId) => {
         this.props.dispatch({ type: `DELETE_PIECE`, payload: { galleryImageId, galleryImageArtistId } })
     }
@@ -45,6 +47,7 @@ class ArtistGallery extends Component {
     render() {
         return (
             <div className='galleryContainer'>
+                {/* makes page render by checking length of reduxState */}
                 {this.props.reduxState.artistDetail.length !== 0 ?
                     <>
                         {this.props.gallery.length !== 0 && this.props.gallery.map((galleryImage, i) => {
@@ -52,11 +55,13 @@ class ArtistGallery extends Component {
                                 <div key={i}>
                                     <img key={i} alt='galleryImage' onClick={() => this.handleClick(galleryImage.id)} className='galleryImages' src={galleryImage.image_url} />
                                     <br />
+                                    {/* requires user logged with id of 1 to delete itime */}
                                     {this.props.reduxState.user.id === 1 ?
                                         <button className='deleteButton' onClick={() => this.handleDelete(galleryImage.id, galleryImage.artist_id)}>Delete</button>
                                         :
                                         <>
                                         </>}
+                                        {/* conditional statement to render piece as either available or on loan */}
                                     {galleryImage.status ?
                                         <>
                                             <p className='status' onClick={() => this.handleUpdate(galleryImage)}> Available </p>
@@ -70,7 +75,7 @@ class ArtistGallery extends Component {
                             )
                         })
                         }
-
+                        {/* material UI dialog box that allows image to open in new window */}
                         < Dialog id="dialog" open={this.state.isOpen} > {
                             this.props.reduxState.gallerySpec.length ?
                                 <>

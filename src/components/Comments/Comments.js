@@ -11,7 +11,7 @@ class Comments extends Component {
     getComments() {
         this.props.dispatch({ type: `FETCH_COMMENTS` })
     }
-
+    // sends dispatch to sagas to make axios delete request
     handleClick = (commentId) => {
         this.props.dispatch({ type: `DELETE_COMMENT`, payload: commentId });
 
@@ -24,8 +24,8 @@ class Comments extends Component {
                 {this.props.reduxState.comments.length !== 0 && this.props.reduxState.comments.map((comment, i) => {
                     return <div key={i} className='comments'> {comment.comment}
                         <br />
+                        {/* sending properties of comment in-line via onClick function */}
                         <button onClick={() => this.handleClick(comment.id)}>Delete</button>
-                        <br />
                         <br />
                     </div>
                 })}

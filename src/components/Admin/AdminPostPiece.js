@@ -15,13 +15,13 @@ class AdminPostPiece extends Component {
     componentDidMount() {
         this.props.dispatch({type:`FETCH_ARTISTS`})
     }
-    // 
+    // currying change functions for all inputs 
     handleChangeFor = propertyName => (event) => {
         this.setState({
             [propertyName]: event.target.value,
         });
     }
-
+    // sends a dispatch to sagas with data needed to post a new piece to database
     handleClick = () => {
         this.props.history.push('/artistDetail')
         this.props.dispatch({ type: `POST_PIECE`, payload: this.state })

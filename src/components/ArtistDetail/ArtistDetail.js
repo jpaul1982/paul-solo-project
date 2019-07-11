@@ -8,11 +8,11 @@ class ArtistDetail extends Component {
     componentDidMount() {
         this.getArtists();
     }
-
+    // sends dispatch to sags to retrieve artist info from database
     getArtists() {
         this.props.dispatch({ type: `FETCH_ARTISTS` })
     }
-
+    // triggers the dispatch upon clicking div
     handleClick = (artistId) => {
         this.props.history.push('/artistGallery');
         this.props.dispatch({
@@ -24,6 +24,7 @@ class ArtistDetail extends Component {
     render() {
         return (
             <div className='details'>
+                {/* makes page render by checking length of reduxState */}
                 {this.props.reduxState.artistDetail.length !== 0 ?
                     <>
                         <img alt='artist' className='selfie' src={this.props.artist.img_url} />

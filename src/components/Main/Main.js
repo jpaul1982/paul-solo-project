@@ -15,6 +15,7 @@ class Main extends Component {
     getPieces() {
         this.props.dispatch({ type: `FETCH_PIECES` })
     }
+    // sends dispatch to sagas with entire artist object as payload
     handleClick = (artist) => {
         this.props.history.push('/artistDetail');
         this.props.dispatch({
@@ -26,31 +27,31 @@ class Main extends Component {
     render() {
         return (
             <div>
-               
                 {this.props.reduxState.user.id === 1 ?
                     <>
-                        {/* <p className='adminLinks'><u>Admin Options</u></p> */}
-
                         <p id='links' className='adminLinks' onClick={() => { this.props.history.push('/comments') }}>Check Comments </p>
-
                         <p id='links' className='adminLinks' onClick={() => { this.props.history.push('/admin-post-piece') }}>Add New Piece</p>
-
                         <p id='links' className='adminLinks' onClick={() => { this.props.history.push('/admin-post-artist') }}>Add New Artist</p>
-
                     </>
                     :
                     <>
                     </>}
-                    <h1 id='emerson'>Emerson Gallery</h1>
+
+                <h1 id='emerson'>Emerson Gallery</h1>
+
                 <div className='current'>
                     <p>Currently Available To View</p>
                     <p id='string'>"String of Pearls" by William Paxton</p>
                 </div>
+
                 {this.props.reduxState.pieces.length &&
                     <img className='mainImage' alt='Main' src={image} />}
 
                 <h2 id='collection'>Current Collection:</h2>
+
                 <ul className="artistList">
+                    {/* maps through list of artists to choose from with click handler 
+                    attached to each li */}
                     {this.props.reduxState.artists.map((artist, i) => {
                         return (
                             <li className='links' id="artistItem" onClick={() => this.handleClick(artist)}
@@ -59,8 +60,6 @@ class Main extends Component {
                             </li>)
                     })}
                 </ul>
-
-
             </div>
         )
     }
