@@ -38,6 +38,7 @@ class ArtistGallery extends Component {
     }
 
     handleBack = () => {
+        this.props.dispatch({type:`CLEAR_STATE`});
         this.props.history.push('/artistDetail');
     }
 

@@ -1,7 +1,4 @@
-.dropdown {
-    margin:0;
-    height: 25px;
-}
+
 .submit {
 background-color:rgb(173, 122, 171);
 border: none;
@@ -47,4 +44,7 @@ border-radius: 10px;
 
 }
 
-
+#bio {
+    height: 50px;
+    padding: 10px 20px;
+}

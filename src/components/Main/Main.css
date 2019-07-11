@@ -2,7 +2,7 @@
     width: 35%;
     height: 35%;
     margin-top: 40px;
-    margin-left: 325px;
+    margin-left: 350px;
     display: block;
     border: inset #b98e71 25px;
     border-radius: 2px;
@@ -17,7 +17,7 @@
     /* margin-top: 50px; */
     margin-right:220px;
     margin-bottom: 200px;
-    color:rgb(147, 108, 151);
+    color:rgb(114, 84, 117);
     width: 55%;
     margin-right:0;
     column-gap: 520px;
@@ -35,20 +35,28 @@
 #emerson{
     margin-left: 200px;
     margin-top:-20px;
+    color: rgb(120, 64, 124);
+
 }
 
 #collection {
     /* font-family: 'Arizonia', cursive; */
     text-align: center;
     font-size: 35px;
-    color:rgb(136, 99, 139);
+    color:rgb(103, 75, 105);
     margin-top: 50px;
     margin-bottom:-20px;
 }
 
 .adminLinks {
-    font-size: 15px;
-    width: 200px;
+display: inline-flex;
+margin-left: 200px;
+float: right;
+font-size: 15px;
+margin-top: -80px;
+}
+.adminLinks:hover {
+    color:rgb(220, 162, 224);
 }
 
 .current {
@@ -62,7 +70,9 @@
 
 #links {
     cursor: pointer;
-}
+    margin:0px;
+    width: 110px;
+ }
 
 .links {
     cursor: pointer;

@@ -4,6 +4,8 @@ const artistGallery = (state = [], action) => {
     switch (action.type) {
         case `SET_GALLERY`:
         return action.payload;
+        case `CLEAR_STATE`:
+            return state;
         default:
             return state;
     }

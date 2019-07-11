@@ -26,10 +26,10 @@ class Main extends Component {
     render() {
         return (
             <div>
-                <h1 id='emerson'>Emerson Gallery</h1>
+               
                 {this.props.reduxState.user.id === 1 ?
                     <>
-                        <p className='adminLinks'><u>Admin Options</u></p>
+                        {/* <p className='adminLinks'><u>Admin Options</u></p> */}
 
                         <p id='links' className='adminLinks' onClick={() => { this.props.history.push('/comments') }}>Check Comments </p>
 
@@ -41,6 +41,7 @@ class Main extends Component {
                     :
                     <>
                     </>}
+                    <h1 id='emerson'>Emerson Gallery</h1>
                 <div className='current'>
                     <p>Currently Available To View</p>
                     <p id='string'>"String of Pearls" by William Paxton</p>
