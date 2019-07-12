@@ -4,6 +4,7 @@ import './ArtistGallery.css';
 import Dialog from '@material-ui/core/dialog';
 import Grid from '@material-ui/core/Grid';
 import { Redirect } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 class ArtistGallery extends Component {
 
@@ -30,17 +31,34 @@ class ArtistGallery extends Component {
     }
     // sends dispatch to make put request to saga.
     handleUpdate = (galleryImage) => {
-    // this requires that only user logged in with id of 1 can make this dispatch
+        // this requires that only user logged in with id of 1 can make this dispatch
         this.props.reduxState.user.id === 1 &&
             this.props.dispatch({ type: `UPDATE_GALLERY_ITEM`, payload: { galleryImage } });
     }
     // sends dispatch to delete item 
     handleDelete = (galleryImageId, galleryImageArtistId) => {
-        this.props.dispatch({ type: `DELETE_PIECE`, payload: { galleryImageId, galleryImageArtistId } })
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                this.props.dispatch({ type: `DELETE_PIECE`, payload: { galleryImageId, galleryImageArtistId } })
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
     }
 
     handleBack = () => {
-        this.props.dispatch({type:`CLEAR_STATE`});
+        this.props.dispatch({ type: `CLEAR_STATE` });
         this.props.history.push('/artistDetail');
     }
 
@@ -61,7 +79,7 @@ class ArtistGallery extends Component {
                                         :
                                         <>
                                         </>}
-                                        {/* conditional statement to render piece as either available or on loan */}
+                                    {/* conditional statement to render piece as either available or on loan */}
                                     {galleryImage.status ?
                                         <>
                                             <p className='status' onClick={() => this.handleUpdate(galleryImage)}> Available </p>
