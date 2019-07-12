@@ -41,7 +41,7 @@ class AdminPostPiece extends Component {
                 <br/>
                 <select id='inputs' onChange={this.handleChangeFor("artist_id")} className='dropdown' name='Artist_id'>
                     {this.props.reduxState.artists.map((artist, i) => {
-                        return <option placeholder='Artist Id' className='submit'value={artist.id} key={i}> Artist ID : {artist.last_name} {artist.id}</option>
+                        return <option placeholder='Artist Id' className='submit' value={artist.id} key={i}> Artist ID : {artist.last_name} {artist.id}</option>
                     })}
                 </select>
                 <br/>

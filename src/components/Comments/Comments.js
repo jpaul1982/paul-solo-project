@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './Comments.css'
+import './Comments.css';
+import Swal from 'sweetalert2';
 
 class Comments extends Component {
 
@@ -13,8 +14,25 @@ class Comments extends Component {
     }
     // sends dispatch to sagas to make axios delete request
     handleClick = (commentId) => {
-        this.props.dispatch({ type: `DELETE_COMMENT`, payload: commentId });
-
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.value) {
+                this.props.dispatch({ type: `DELETE_COMMENT`, payload: commentId })
+              Swal.fire(
+                'Deleted!',
+                'Your comment has been deleted.',
+                'success'
+              )
+            }
+          })
+          
     }
     render() {
         return (

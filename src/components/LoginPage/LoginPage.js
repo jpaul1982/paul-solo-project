@@ -18,6 +18,7 @@ class LoginPage extends Component {
           password: this.state.password,
         },
       });
+      this.props.history.push('/home');
     } else {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
@@ -32,12 +33,12 @@ class LoginPage extends Component {
   render() {
     return (
       <div>
-        {this.props.errors.loginMessage && (
+        {this.props.state.errors.loginMessage && (
           <h2
             className="alert"
             role="alert"
           >
-            {this.props.errors.loginMessage}
+            {this.props.state.errors.loginMessage}
           </h2>
         )}
         <form onSubmit={this.login}>
@@ -91,7 +92,7 @@ class LoginPage extends Component {
 // if you wanted you could write this code like this:
 // const mapStateToProps = ({errors}) => ({ errors });
 const mapStateToProps = state => ({
-  errors: state.errors,
+  state,
 });
 
 export default connect(mapStateToProps)(LoginPage);

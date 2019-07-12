@@ -6,6 +6,8 @@ p {
 textArea {
     margin-left: 100px;
     margin-top: 50px;
+    outline-color: rgb(178, 145, 204);
+    border: none;
 }
 
 #submit {
@@ -19,6 +21,6 @@ textArea {
     font-size: 16px;
     cursor: pointer;
     border-radius: 10px;
-    margin-left:15px;
-
+    margin-left:100px;
+    margin-top: 25px;
 }

@@ -24,13 +24,14 @@ class AboutPage extends Component {
         <div>
           <p>
             Veronikas is web application that allows boutique galleries to <br></br>
-            showcase their current collection of artwork to the public <br></br>
+            showcase their current collection to the public <br></br>
             and receive user feedback.
       </p>
           <p>
             Please feel free to leave comments or inquiries below!
       </p>
-          <textarea rows='5' cols='35' onChange={this.handleChange} value={this.state.comment} placeholder="leave comments or inquiries"></textarea>
+          <textarea rows='5' cols='35' onChange={this.handleChange} value={this.state.comment} placeholder="Leave comments or inquiries."></textarea>
+          <br/>
           <input id="submit" onClick={this.handleComment} type="submit"></input>
         </div>
       </div>
