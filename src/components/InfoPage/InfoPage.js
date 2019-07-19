@@ -3,7 +3,9 @@ import React from 'react';
 const InfoPage = () => (
   <div>
     <p>
-      Click on images and experience the majesty that is great art.
+    Objets d'art.
+ 
+      
     </p>
   </div>
 );

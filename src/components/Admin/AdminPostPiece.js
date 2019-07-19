@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './AdminPostPiece.css'
+import './AdminPostPiece.css';
+import Swal from 'sweetalert2';
 
 class AdminPostPiece extends Component {
 
@@ -23,15 +24,20 @@ class AdminPostPiece extends Component {
     }
     // sends a dispatch to sagas with data needed to post a new piece to database
     handleClick = () => {
-        this.props.history.push('/artistDetail')
-        this.props.dispatch({ type: `POST_PIECE`, payload: this.state })
+        console.log(this.state);
+        
+        this.props.history.push('/home');
+        this.props.dispatch({ type: `POST_PIECE`, payload: this.state });
         this.props.dispatch({ type: `FETCH_PIECES` });
+        Swal.fire(
+            'Congrats!! New piece has been added to artist gallery.',
+            )
     }
     render() {
         return (
             <>
                 <h2>Add New Piece</h2>
-                <input className='inputs' onChange={this.handleChangeFor("title")} name="title" type="text" value={this.state.title} placeholder='title of pice'></input>
+                <input className='inputs' onChange={this.handleChangeFor("title")} name="title" type="text" value={this.state.title} placeholder='title of piece'></input>
                 <br/>
                 <input  className='inputs' onChange={this.handleChangeFor("year")} name="year" type="text" value={this.state.year} placeholder='year of piece'></input>
                 <br/>
@@ -40,6 +46,7 @@ class AdminPostPiece extends Component {
                 <input  className='inputs' onChange={this.handleChangeFor("image_url")} name="image_url" type="text" value={this.state.image_url} placeholder='url of piece'></input>
                 <br/>
                 <select id='inputs' onChange={this.handleChangeFor("artist_id")} className='dropdown' name='Artist_id'>
+                    <option>Artist Id</option>
                     {this.props.reduxState.artists.map((artist, i) => {
                         return <option placeholder='Artist Id' className='submit' value={artist.id} key={i}> Artist ID : {artist.last_name} {artist.id}</option>
                     })}

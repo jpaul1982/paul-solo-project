@@ -45,7 +45,7 @@ router.get('/pieces', (req, res) => {
 });
 
 router.get('/comments', (req, res) => {
-    const queryText = 'SELECT * FROM comments';
+    const queryText = 'SELECT * FROM comments ORDER BY "id"';
     pool.query(queryText)
         .then((result) => { res.send(result.rows); })
         .catch((error) => {

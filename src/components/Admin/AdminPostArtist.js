@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './AdminPostArtist.css';
+import Swal from 'sweetalert2';
+
 class AdminPostArtist extends Component {
 
     state = {
@@ -23,6 +25,9 @@ class AdminPostArtist extends Component {
         this.props.history.push('/home');
         this.props.dispatch({ type: `POST_ARTIST`, payload: this.state });
         this.props.dispatch({ type: `FETCH_ARTISTS` });
+        Swal.fire(
+            'New artist added.',
+            )
 
 
     }

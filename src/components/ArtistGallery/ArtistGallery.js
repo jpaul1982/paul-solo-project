@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './ArtistGallery.css';
-import Dialog from '@material-ui/core/dialog';
+import Dialog from '@material-ui/core/Dialog';
 import Grid from '@material-ui/core/Grid';
 import { Redirect } from 'react-router-dom';
 import Swal from 'sweetalert2';

@@ -20,7 +20,7 @@
 }
 
 .deleteButton {
-  background-color:rgb(173, 122, 171);
+  background-color:rgb(61, 43, 61);
   border: none;
   color: white;
   padding: 10px 25px;
@@ -65,7 +65,7 @@
 }
 
 .status {
-    font-size: 15px;
+    font-size: 25px;
     cursor:pointer;
     margin-top: -40px;
     margin-left: 20px;

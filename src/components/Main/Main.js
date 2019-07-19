@@ -40,8 +40,9 @@ class Main extends Component {
                 <h1 id='emerson'>Emerson Gallery</h1>
 
                 <div className='current'>
-                    <p>Currently Available To View</p>
+                    <p>Currently On View</p>
                     <p id='string'>"String of Pearls" by William Paxton</p>
+                    <p>Through August 2019</p>
                 </div>
 
                 {this.props.reduxState.pieces.length &&
