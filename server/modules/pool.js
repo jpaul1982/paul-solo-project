@@ -28,9 +28,9 @@ if (process.env.DATABASE_URL) {
   };
 } else {
   config = {
-    host: 'localhost', // Server hosting the postgres database
+    host: 'ec2-107-21-201-238.compute-1.amazonaws.com', // Server hosting the postgres database
     port: 5432, // env var: PGPORT
-    database: 'Veronikas', // CHANGE THIS LINE! env var: PGDATABASE, this is likely the one thing you need to change to get up and running
+    database: 'dj6njid62a6j3', // CHANGE THIS LINE! env var: PGDATABASE, this is likely the one thing you need to change to get up and running
     max: 10, // max number of clients in the pool
     idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
   };
