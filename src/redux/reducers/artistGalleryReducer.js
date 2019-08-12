@@ -8,7 +8,7 @@ const artistGallery = (state = [], action) => {
             return state;
         default:
             return state;
-    }
+   }
 }
 
 export default artistGallery;
