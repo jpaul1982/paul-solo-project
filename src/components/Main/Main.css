@@ -1,9 +1,9 @@
 .mainImage{
     width: 35%;
     height: 35%;
-    margin-top: 40px;
-    margin-left: 350px;
-    display: block;
+    margin-top: -450px;
+    margin-left: 400px;
+    /* display: block; */
     border: inset #b98e71 25px;
     border-radius: 2px;
     box-shadow: 10px 12px 0.5rem rgba(0,0,0,0.5);
@@ -60,8 +60,9 @@ margin-top: -80px;
 }
 
 .current {
-    float:right;
+    /* float:right; */
     margin-top: 300px;
+    margin-left: 1000px;
 }
 
 #string{
